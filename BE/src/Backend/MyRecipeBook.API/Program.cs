@@ -48,7 +48,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
+//builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();

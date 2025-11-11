@@ -29,9 +29,11 @@ public class RegisterRecipeUseCase : IRegisterRecipeUseCase
         var recipe = _mapper.Map<Domain.Entities.Recipe>(request);
 
         await _repository.Add(recipe);
+        var mapperReturn = _mapper.Map<ResponseRegisteredRecipeJson>(recipe);
+        
         await _unitOfWork.Commit();
         
-        return _mapper.Map<ResponseRegisteredRecipeJson>(recipe);
+        return mapperReturn;
     }
 
     private static void Validate(RequestRecipeJson request)

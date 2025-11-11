@@ -19,10 +19,10 @@ public class AutoMapping : Profile
 
         CreateMap<RequestRecipeJson, Domain.Entities.Recipe>();
     }
-    
+
     private void DomainToResponse()
     {
         CreateMap<Domain.Entities.User, ResponseUserProfileJson>();
+        CreateMap<Domain.Entities.Recipe, ResponseRegisteredRecipeJson>();
     }
-
 }
