@@ -1,0 +1,29 @@
+trigger:
+- main
+
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'afa00af4-25b6-41fb-9c46-3788df82d6d1'
+  imageRepository: 'apiecommerceufsc'
+  containerRegistry: 'ecommerceprojectufsc.azurecr.io'
+  dockerfilePath: 'Beckend/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+  
+  pool:
+      vmImage: $(vmImageName)
+
+steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          latest
+          $(tag)
