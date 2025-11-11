@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using MyRecipeBook.API.Converters;
 using MyRecipeBook.API.Filters;
@@ -6,6 +8,7 @@ using MyRecipeBook.API.Token;
 using MyRecipeBook.Application;
 using MyRecipeBook.Domain.Security.Tokens;
 using MyRecipeBook.Infrastructure;
+using MyRecipeBook.Infrastructure.DataAcess;
 using MyRecipeBook.Infrastructure.Extensions;
 using MyRecipeBook.Infrastructure.Migrations;
 
@@ -58,7 +61,19 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddHealthChecks().AddDbContextCheck<MyRecipeBookDbContext>();
+
 var app = builder.Build();
+
+app.MapHealthChecks("/Health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    AllowCachingResponses = false,
+    ResultStatusCodes =
+    {
+        [HealthStatus.Healthy] =  StatusCodes.Status200OK,
+        [HealthStatus.Unhealthy] =  StatusCodes.Status503ServiceUnavailable
+    }
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
