@@ -13,4 +13,4 @@ WORKDIR /app
 
 COPY --from=build-env /app/out .
 
-ENTRYPOINT["dotnet", "MyRecipeBook.API.dll"] 
+ENTRYPOINT ["dotnet", "MyRecipeBook.API.dll"] 
