@@ -51,7 +51,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-//builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
+builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
@@ -63,7 +63,18 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddHealthChecks().AddDbContextCheck<MyRecipeBookDbContext>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy => policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowFrontend");
 
 app.MapHealthChecks("/Health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {
