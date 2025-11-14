@@ -1,6 +1,6 @@
 using MyRecipeBook.Domain.Security.Tokens;
 
-namespace MyRecipeBook.API.Token;
+namespace EcommerceProjectUFSC.API.Token;
 
 public class HttpContextTokenValue : ITokenProvider
 {

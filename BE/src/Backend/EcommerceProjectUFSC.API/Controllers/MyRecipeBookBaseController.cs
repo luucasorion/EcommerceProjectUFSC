@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyRecipeBook.API.Controllers;
+namespace EcommerceProjectUFSC.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]

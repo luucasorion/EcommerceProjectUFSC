@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace MyRecipeBook.API.Middleware;
+namespace EcommerceProjectUFSC.API.Middleware;
 
 public class CultureMiddleware
 { 

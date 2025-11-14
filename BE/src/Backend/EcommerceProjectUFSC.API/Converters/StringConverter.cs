@@ -2,7 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
-namespace MyRecipeBook.API.Converters;
+namespace EcommerceProjectUFSC.API.Converters;
 
 public partial class StringConverter : JsonConverter<string>
 {

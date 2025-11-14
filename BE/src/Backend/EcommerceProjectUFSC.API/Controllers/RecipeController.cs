@@ -1,10 +1,10 @@
+using EcommerceProjectUFSC.API.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using MyRecipeBook.API.Attributes;
 using MyRecipeBook.Application.UseCases.Recipe;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 
-namespace MyRecipeBook.API.Controllers;
+namespace EcommerceProjectUFSC.API.Controllers;
 
 [AuthenticatedUser]
 public class RecipeController : MyRecipeBookBaseController

@@ -7,7 +7,7 @@ using MyRecipeBook.Domain.Security.Tokens;
 using MyRecipeBook.Exceptions;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
-namespace MyRecipeBook.API.Filters;
+namespace EcommerceProjectUFSC.API.Filters;
 
 public class AuthenticatedUserFilter : IAsyncAuthorizationFilter
 {

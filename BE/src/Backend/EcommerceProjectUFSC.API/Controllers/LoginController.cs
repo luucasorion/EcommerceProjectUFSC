@@ -3,7 +3,7 @@ using MyRecipeBook.Application.UseCases.Login.DoLogin;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 
-namespace MyRecipeBook.API.Controllers;
+namespace EcommerceProjectUFSC.API.Controllers;
 
 public class LoginController : MyRecipeBookBaseController
 {

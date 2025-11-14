@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
-using MyRecipeBook.API.Converters;
-using MyRecipeBook.API.Filters;
-using MyRecipeBook.API.Middleware;
-using MyRecipeBook.API.Token;
+using EcommerceProjectUFSC.API.Converters;
+using EcommerceProjectUFSC.API.Filters;
+using EcommerceProjectUFSC.API.Middleware;
+using EcommerceProjectUFSC.API.Token;
 using MyRecipeBook.Application;
 using MyRecipeBook.Domain.Security.Tokens;
 using MyRecipeBook.Infrastructure;
