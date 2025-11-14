@@ -1,8 +1,8 @@
 using EcommerceProjectUFSC.Application.Services.Cryptography;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
-using MyRecipeBook.Domain.Repositories.User;
-using MyRecipeBook.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;

@@ -14,7 +14,7 @@ public class ProductsController : EcommerceProjectUFSCBaseController
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
 
     public async Task<IActionResult> Register(
-        [FromServices] IRegisterRecipeUseCase useCase,
+        [FromServices] IRegisterProductsUseCase useCase,
         [FromBody] RequestRecipeJson request)
     {
         var response = await useCase.Execute(request);

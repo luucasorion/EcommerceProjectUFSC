@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Domain.Repositories.Recipe;
+namespace EcommerceProjectUFSC.Domain.Repositories.Recipe;
 
 public interface IRecipeWriteOnlyRepository
 {

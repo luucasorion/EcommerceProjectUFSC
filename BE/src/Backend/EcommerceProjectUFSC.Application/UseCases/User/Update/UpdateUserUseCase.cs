@@ -1,7 +1,7 @@
 using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Domain.Repositories;
-using MyRecipeBook.Domain.Repositories.User;
-using MyRecipeBook.Domain.Services.LoggedUser;
+using EcommerceProjectUFSC.Domain.Repositories;
+using EcommerceProjectUFSC.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Services.LoggedUser;
 using MyRecipeBook.Exceptions;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 

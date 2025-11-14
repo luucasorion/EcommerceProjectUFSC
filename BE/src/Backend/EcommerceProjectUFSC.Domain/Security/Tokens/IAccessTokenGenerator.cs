@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Domain.Security.Tokens;
+namespace EcommerceProjectUFSC.Domain.Security.Tokens;
 
 public interface IAccessTokenGenerator
 {

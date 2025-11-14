@@ -1,21 +1,21 @@
 using AutoMapper;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
-using MyRecipeBook.Domain.Repositories;
-using MyRecipeBook.Domain.Repositories.Recipe;
-using MyRecipeBook.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Repositories;
+using EcommerceProjectUFSC.Domain.Repositories.Recipe;
+using EcommerceProjectUFSC.Domain.Repositories.User;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.Application.UseCases.Recipe;
 
-public class RegisterRecipeUseCase : IRegisterRecipeUseCase
+public class RegisterProductsUseCase : IRegisterProductsUseCase
 {
     private readonly IRecipeWriteOnlyRepository _repository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     
     
-    public RegisterRecipeUseCase(IRecipeWriteOnlyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+    public RegisterProductsUseCase(IRecipeWriteOnlyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
     {
         _repository = repository;
         _unitOfWork = unitOfWork;
@@ -26,7 +26,7 @@ public class RegisterRecipeUseCase : IRegisterRecipeUseCase
     {
         Validate(request);
         
-        var recipe = _mapper.Map<MyRecipeBook.Domain.Entities.Recipe>(request);
+        var recipe = _mapper.Map<Domain.Entities.Recipe>(request);
 
         await _repository.Add(recipe);
         var mapperReturn = _mapper.Map<ResponseRegisteredRecipeJson>(recipe);
@@ -38,7 +38,7 @@ public class RegisterRecipeUseCase : IRegisterRecipeUseCase
 
     private static void Validate(RequestRecipeJson request)
     {
-        var result = new RecipeValidator().Validate(request);
+        var result = new ProductsValidator().Validate(request);
 
         if (result.IsValid == false)
         {

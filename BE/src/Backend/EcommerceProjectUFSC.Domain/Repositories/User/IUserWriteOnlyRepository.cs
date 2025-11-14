@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Domain.Repositories.User;
+namespace EcommerceProjectUFSC.Domain.Repositories.User;
 
 public interface IUserWriteOnlyRepository
 {

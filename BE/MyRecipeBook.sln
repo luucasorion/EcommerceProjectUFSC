@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.API", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Application", "src\Backend\EcommerceProjectUFSC.Application\EcommerceProjectUFSC.Application.csproj", "{3E1E6C51-2587-4F2A-A4BC-543F9DC53B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Domain", "src\Backend\MyRecipeBook.Domain\MyRecipeBook.Domain.csproj", "{CA59020C-A76A-4893-80F3-449D97E9A341}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Domain", "src\Backend\EcommerceProjectUFSC.Domain\EcommerceProjectUFSC.Domain.csproj", "{CA59020C-A76A-4893-80F3-449D97E9A341}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Infrastructure", "src\Backend\MyRecipeBook.Infrastructure\MyRecipeBook.Infrastructure.csproj", "{530FEA20-E45C-45A1-AE6E-5B3A3F9DF93E}"
 EndProject

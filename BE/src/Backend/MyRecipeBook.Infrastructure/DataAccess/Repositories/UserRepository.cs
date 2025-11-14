@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using MyRecipeBook.Domain.Entities;
-using MyRecipeBook.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Repositories.User;
 
 namespace MyRecipeBook.Infrastructure.DataAcess.Repositories;
 

@@ -1,4 +1,4 @@
-using MyRecipeBook.Domain.Repositories;
+using EcommerceProjectUFSC.Domain.Repositories;
 
 namespace MyRecipeBook.Infrastructure.DataAcess;
 

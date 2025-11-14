@@ -1,7 +1,7 @@
 using AutoMapper;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
-using MyRecipeBook.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Entities;
 
 namespace EcommerceProjectUFSC.Application.Services.AutoMapper;
 

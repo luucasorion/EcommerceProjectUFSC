@@ -1,6 +1,6 @@
 using AutoMapper;
 using MyRecipeBook.Communication.Responses;
-using MyRecipeBook.Domain.Services.LoggedUser;
+using EcommerceProjectUFSC.Domain.Services.LoggedUser;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Profile;
 

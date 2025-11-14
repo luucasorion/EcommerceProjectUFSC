@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Domain.Entities;
+namespace EcommerceProjectUFSC.Domain.Entities;
 
 public class Recipe : EntityBase
 {

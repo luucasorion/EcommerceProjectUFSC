@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MyRecipeBook.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Entities;
 
 namespace MyRecipeBook.Infrastructure.DataAcess;
 

@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Domain.Repositories;
+namespace EcommerceProjectUFSC.Domain.Repositories;
 
 public interface IUnitOfWork
 {

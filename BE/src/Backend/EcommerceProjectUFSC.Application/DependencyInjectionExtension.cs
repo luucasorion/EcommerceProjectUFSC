@@ -33,7 +33,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
-        services.AddScoped<IRegisterRecipeUseCase, RegisterRecipeUseCase>();
+        services.AddScoped<IRegisterProductsUseCase, RegisterProductsUseCase>();
     }
 
     private static void AddDPassword(IServiceCollection services, IConfiguration configuration)

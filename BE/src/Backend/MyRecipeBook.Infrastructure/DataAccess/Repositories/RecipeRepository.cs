@@ -1,5 +1,5 @@
-using MyRecipeBook.Domain.Entities;
-using MyRecipeBook.Domain.Repositories.Recipe;
+using EcommerceProjectUFSC.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Repositories.Recipe;
 using MyRecipeBook.Infrastructure.DataAcess;
 
 namespace MyRecipeBook.Infrastructure.DataAccess.Repositories;

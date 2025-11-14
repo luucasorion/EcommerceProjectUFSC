@@ -4,9 +4,9 @@ using MyRecipeBook.Exceptions;
 
 namespace EcommerceProjectUFSC.Application.UseCases.Recipe;
 
-public class RecipeValidator : AbstractValidator<RequestRecipeJson>
+public class ProductsValidator : AbstractValidator<RequestRecipeJson>
 {
-    public RecipeValidator()
+    public ProductsValidator()
     {
         RuleFor(recipe => recipe.Title).NotEmpty().WithMessage(ResourceMessegesException.TITLE_EMPTY);
         
