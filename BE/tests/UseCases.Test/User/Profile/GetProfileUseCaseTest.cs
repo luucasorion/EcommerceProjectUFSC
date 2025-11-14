@@ -21,7 +21,7 @@ public class GetProfileUseCaseTest
         result.Email.Should().Be(user.Email);
     }
 
-    private static GetUserProfileUseCase CreateUseCase(MyRecipeBook.Domain.Entities.User user)
+    private static GetUserProfileUseCase CreateUseCase(EcommerceProjectUFSC.Domain.Entities.User user)
     {
         var mapper = MapperBuilder.Build();
         var loggedUser = LoggedUserBuilder.Build(user);

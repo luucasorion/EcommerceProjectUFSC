@@ -1,6 +1,6 @@
 namespace EcommerceProjectUFSC.Domain.Entities;
 
-public class Recipe : EntityBase
+public class Products : EntityBase
 {
     public string Title { get; set; } =  String.Empty;
     public string Description { get; set; } = String.Empty;

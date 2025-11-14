@@ -1,6 +1,6 @@
 using EcommerceProjectUFSC.Domain.Repositories;
 
-namespace MyRecipeBook.Infrastructure.DataAcess;
+namespace EcommerceProjectUFSC.Infrastructure.DataAcess;
 
 public class UnitOfWork : IUnitOfWork
 {

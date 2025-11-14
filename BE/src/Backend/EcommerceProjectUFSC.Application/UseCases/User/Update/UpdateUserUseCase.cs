@@ -1,9 +1,9 @@
-using MyRecipeBook.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Requests;
 using EcommerceProjectUFSC.Domain.Repositories;
 using EcommerceProjectUFSC.Domain.Repositories.User;
 using EcommerceProjectUFSC.Domain.Services.LoggedUser;
-using MyRecipeBook.Exceptions;
-using MyRecipeBook.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Exceptions;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Update;
 

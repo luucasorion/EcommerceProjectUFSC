@@ -1,4 +1,4 @@
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Profile;
 

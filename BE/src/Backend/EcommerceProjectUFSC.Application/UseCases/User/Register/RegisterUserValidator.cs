@@ -1,6 +1,6 @@
 using FluentValidation;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Exceptions;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Exceptions;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Register;
 

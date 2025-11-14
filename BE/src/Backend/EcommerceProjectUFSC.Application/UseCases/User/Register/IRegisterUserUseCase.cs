@@ -1,5 +1,5 @@
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Register;
 

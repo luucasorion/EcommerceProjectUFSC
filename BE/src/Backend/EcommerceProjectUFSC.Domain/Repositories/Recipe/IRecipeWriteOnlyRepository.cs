@@ -2,5 +2,5 @@ namespace EcommerceProjectUFSC.Domain.Repositories.Recipe;
 
 public interface IRecipeWriteOnlyRepository
 {
-    public Task Add(Entities.Recipe recipe);
+    public Task Add(Entities.Products products);
 }

@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MyRecipeBook.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAcess;
 
 namespace WebApi.Test;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
-    private MyRecipeBook.Domain.Entities.User _user = null!;
+    private EcommerceProjectUFSC.Domain.Entities.User _user = null!;
     private string _password = string.Empty;
     
     protected override void ConfigureWebHost(IWebHostBuilder builder)

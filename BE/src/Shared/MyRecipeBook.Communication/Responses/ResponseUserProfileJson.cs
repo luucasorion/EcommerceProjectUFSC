@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Communication.Responses;
+namespace EcommerceProjectUFSC.Communication.Responses;
 
 public class ResponseUserProfileJson
 {

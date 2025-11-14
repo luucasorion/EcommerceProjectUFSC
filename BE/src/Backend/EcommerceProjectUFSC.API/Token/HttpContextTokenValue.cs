@@ -1,4 +1,4 @@
-using MyRecipeBook.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
 
 namespace EcommerceProjectUFSC.API.Token;
 

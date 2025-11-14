@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
-using MyRecipeBook.Communication.Responses;
-using MyRecipeBook.Domain.Repositories.User;
-using MyRecipeBook.Domain.Security.Tokens;
-using MyRecipeBook.Exceptions;
-using MyRecipeBook.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Communication.Responses;
+using EcommerceProjectUFSC.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Exceptions;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.API.Filters;
 

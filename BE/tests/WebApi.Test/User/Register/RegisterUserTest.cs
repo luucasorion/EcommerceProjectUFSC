@@ -6,8 +6,8 @@ using CommonTestUtilities.Request;
 using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Testing;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Exceptions;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Exceptions;
 using WebApi.Test.InlineData;
 using Xunit.Abstractions;
 

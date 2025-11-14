@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.API.Controllers;
 

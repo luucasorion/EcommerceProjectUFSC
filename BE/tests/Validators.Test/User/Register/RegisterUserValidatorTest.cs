@@ -1,7 +1,7 @@
 using CommonTestUtilities.Request;
 using FluentAssertions;
 using EcommerceProjectUFSC.Application.UseCases.User.Register;
-using MyRecipeBook.Exceptions;
+using EcommerceProjectUFSC.Exceptions;
 
 namespace Validators.Test.User.Register;
 

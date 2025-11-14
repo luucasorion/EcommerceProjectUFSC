@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace MyRecipeBook.Infrastructure.Extensions;
+namespace EcommerceProjectUFSC.Infrastructure.Extensions;
 
 public static class ConfigurationExtension
 {

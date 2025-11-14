@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
 
-namespace MyRecipeBook.Infrastructure.Security.Tokens.Access.Generator;
+namespace EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Generator;
 
 public class JwtTokenGenerator : JwtTokenHandler, IAccessTokenGenerator
 {

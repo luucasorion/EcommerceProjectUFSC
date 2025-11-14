@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
 
-namespace MyRecipeBook.Infrastructure.Security.Tokens.Access.Validator;
+namespace EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Validator;
 
 public class JwtTokenValidator : JwtTokenHandler, IAccessTokenValidator
 {

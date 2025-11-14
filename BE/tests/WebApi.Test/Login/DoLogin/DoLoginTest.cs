@@ -3,8 +3,8 @@ using System.Net;
 using System.Text.Json;
 using CommonTestUtilities.Request;
 using FluentAssertions;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Exceptions;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Exceptions;
 using WebApi.Test.InlineData;
 
 namespace WebApi.Test.Login.DoLogin;

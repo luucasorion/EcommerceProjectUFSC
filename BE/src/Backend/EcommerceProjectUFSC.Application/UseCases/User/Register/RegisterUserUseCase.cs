@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using EcommerceProjectUFSC.Application.Services.Cryptography;
 using FluentValidation.Results;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Responses;
 using EcommerceProjectUFSC.Domain.Repositories;
 using EcommerceProjectUFSC.Domain.Repositories.User;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
-using MyRecipeBook.Exceptions;
-using MyRecipeBook.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Exceptions;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Register;
 

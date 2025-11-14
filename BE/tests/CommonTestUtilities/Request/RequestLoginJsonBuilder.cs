@@ -1,5 +1,5 @@
 using Bogus;
-using MyRecipeBook.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Requests;
 
 namespace CommonTestUtilities.Request;
 

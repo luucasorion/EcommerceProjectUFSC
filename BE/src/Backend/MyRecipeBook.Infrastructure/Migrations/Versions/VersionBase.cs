@@ -1,7 +1,7 @@
 using FluentMigrator;
 using FluentMigrator.Builders.Create.Table;
 
-namespace MyRecipeBook.Infrastructure.Migrations.Versions;
+namespace EcommerceProjectUFSC.Infrastructure.Migrations.Versions;
 
 public abstract class VersionBase : ForwardOnlyMigration
 {

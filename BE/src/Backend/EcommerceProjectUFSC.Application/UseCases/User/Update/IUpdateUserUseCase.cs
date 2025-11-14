@@ -1,4 +1,4 @@
-using MyRecipeBook.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Requests;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Update;
 

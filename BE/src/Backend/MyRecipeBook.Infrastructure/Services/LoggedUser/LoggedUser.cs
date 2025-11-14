@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using EcommerceProjectUFSC.Domain.Entities;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
 using EcommerceProjectUFSC.Domain.Services.LoggedUser;
-using MyRecipeBook.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAcess;
 
-namespace MyRecipeBook.Infrastructure.Services.LoggedUser;
+namespace EcommerceProjectUFSC.Infrastructure.Services.LoggedUser;
 
 public class LoggedUser : ILoggedUser
 {

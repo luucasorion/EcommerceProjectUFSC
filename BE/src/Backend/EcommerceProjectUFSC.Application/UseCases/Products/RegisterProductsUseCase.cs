@@ -1,12 +1,12 @@
 using AutoMapper;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Application.UseCases.Recipe;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Responses;
 using EcommerceProjectUFSC.Domain.Repositories;
 using EcommerceProjectUFSC.Domain.Repositories.Recipe;
-using EcommerceProjectUFSC.Domain.Repositories.User;
-using MyRecipeBook.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
-namespace EcommerceProjectUFSC.Application.UseCases.Recipe;
+namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
 public class RegisterProductsUseCase : IRegisterProductsUseCase
 {
@@ -26,7 +26,7 @@ public class RegisterProductsUseCase : IRegisterProductsUseCase
     {
         Validate(request);
         
-        var recipe = _mapper.Map<Domain.Entities.Recipe>(request);
+        var recipe = _mapper.Map<Domain.Entities.Products>(request);
 
         await _repository.Add(recipe);
         var mapperReturn = _mapper.Map<ResponseRegisteredRecipeJson>(recipe);

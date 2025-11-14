@@ -1,6 +1,6 @@
 using AutoMapper;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Responses;
 using EcommerceProjectUFSC.Domain.Entities;
 
 namespace EcommerceProjectUFSC.Application.Services.AutoMapper;
@@ -18,12 +18,12 @@ public class AutoMapping : Profile
         CreateMap<RequestRegisterUserJson, User>()
             .ForMember(dest => dest.Password, opt => opt.Ignore());
 
-        CreateMap<RequestRecipeJson, Recipe>();
+        CreateMap<RequestRecipeJson, Products>();
     }
 
     private void DomainToResponse()
     {
         CreateMap<User, ResponseUserProfileJson>();
-        CreateMap<Recipe, ResponseRegisteredRecipeJson>();
+        CreateMap<Products, ResponseRegisteredRecipeJson>();
     }
 }

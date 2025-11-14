@@ -1,7 +1,7 @@
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace MyRecipeBook.Infrastructure.Security.Tokens.Access;
+namespace EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access;
 
 public abstract class JwtTokenHandler
 {

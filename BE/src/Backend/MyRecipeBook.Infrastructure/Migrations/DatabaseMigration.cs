@@ -3,7 +3,7 @@ using FluentMigrator.Runner;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MyRecipeBook.Infrastructure.Migrations;
+namespace EcommerceProjectUFSC.Infrastructure.Migrations;
 
 public static class DatabaseMigration
 {

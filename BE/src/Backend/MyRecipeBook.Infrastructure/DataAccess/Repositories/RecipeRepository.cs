@@ -1,8 +1,8 @@
 using EcommerceProjectUFSC.Domain.Entities;
 using EcommerceProjectUFSC.Domain.Repositories.Recipe;
-using MyRecipeBook.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAcess;
 
-namespace MyRecipeBook.Infrastructure.DataAccess.Repositories;
+namespace EcommerceProjectUFSC.Infrastructure.DataAccess.Repositories;
 
 public class RecipeRepository : IRecipeWriteOnlyRepository
 {
@@ -13,8 +13,8 @@ public class RecipeRepository : IRecipeWriteOnlyRepository
         _dbContext = dbContext;
     }
     
-    public async Task Add(Recipe recipe)
+    public async Task Add(Products products)
     {
-        await _dbContext.Recipes.AddAsync(recipe);
+        await _dbContext.Recipes.AddAsync(products);
     }
 }

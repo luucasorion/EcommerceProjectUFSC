@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using MyRecipeBook.Communication.Responses;
-using MyRecipeBook.Exceptions;
-using MyRecipeBook.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Communication.Responses;
+using EcommerceProjectUFSC.Exceptions;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.API.Filters;
 

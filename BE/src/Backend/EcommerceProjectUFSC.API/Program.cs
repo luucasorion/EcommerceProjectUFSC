@@ -6,11 +6,11 @@ using EcommerceProjectUFSC.API.Filters;
 using EcommerceProjectUFSC.API.Middleware;
 using EcommerceProjectUFSC.API.Token;
 using EcommerceProjectUFSC.Application;
-using MyRecipeBook.Domain.Security.Tokens;
-using MyRecipeBook.Infrastructure;
-using MyRecipeBook.Infrastructure.DataAcess;
-using MyRecipeBook.Infrastructure.Extensions;
-using MyRecipeBook.Infrastructure.Migrations;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Infrastructure;
+using EcommerceProjectUFSC.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.Extensions;
+using EcommerceProjectUFSC.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 

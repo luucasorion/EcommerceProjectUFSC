@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using EcommerceProjectUFSC.Application.UseCases.User.Profile;
 using EcommerceProjectUFSC.Application.UseCases.User.Register;
 using EcommerceProjectUFSC.Application.UseCases.User.Update;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.API.Controllers;
 

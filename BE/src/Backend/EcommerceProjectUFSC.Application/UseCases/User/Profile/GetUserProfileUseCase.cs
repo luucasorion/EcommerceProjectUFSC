@@ -1,5 +1,5 @@
 using AutoMapper;
-using MyRecipeBook.Communication.Responses;
+using EcommerceProjectUFSC.Communication.Responses;
 using EcommerceProjectUFSC.Domain.Services.LoggedUser;
 
 namespace EcommerceProjectUFSC.Application.UseCases.User.Profile;

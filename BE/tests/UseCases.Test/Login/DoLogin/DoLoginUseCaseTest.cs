@@ -4,9 +4,9 @@ using CommonTestUtilities.Request;
 using CommonTestUtilities.Tokens;
 using FluentAssertions;
 using EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
-using MyRecipeBook.Communication.Requests;
-using MyRecipeBook.Exceptions;
-using MyRecipeBook.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Communication.Requests;
+using EcommerceProjectUFSC.Exceptions;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 namespace UseCases.Test.Login.DoLogin;
 
@@ -42,7 +42,7 @@ public class DoLoginUseCaseTest
             .Where(e => e.Message.Equals(ResourceMessegesException.EMAIL_OR_PASSWORD_INVALID));
     }
 
-    private static DoLoginUseCase CreateUseCase(MyRecipeBook.Domain.Entities.User? user = null)
+    private static DoLoginUseCase CreateUseCase(EcommerceProjectUFSC.Domain.Entities.User? user = null)
     {
         var accessTokenGenerator = JwtTokenGeneratorBuilder.Build();
         var userReadOnlyRepositoryBuilder = new UserReadOnlyRepositoryBuilder();
