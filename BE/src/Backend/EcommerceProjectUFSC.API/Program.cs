@@ -5,7 +5,7 @@ using EcommerceProjectUFSC.API.Converters;
 using EcommerceProjectUFSC.API.Filters;
 using EcommerceProjectUFSC.API.Middleware;
 using EcommerceProjectUFSC.API.Token;
-using MyRecipeBook.Application;
+using EcommerceProjectUFSC.Application;
 using MyRecipeBook.Domain.Security.Tokens;
 using MyRecipeBook.Infrastructure;
 using MyRecipeBook.Infrastructure.DataAcess;

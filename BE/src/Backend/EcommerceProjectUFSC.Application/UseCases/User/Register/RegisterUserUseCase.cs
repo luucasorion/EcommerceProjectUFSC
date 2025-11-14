@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using EcommerceProjectUFSC.Application.Services.Cryptography;
 using FluentValidation.Results;
-using MyRecipeBook.Application.Services.Cryptography;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Domain.Repositories;
@@ -9,7 +9,7 @@ using MyRecipeBook.Domain.Security.Tokens;
 using MyRecipeBook.Exceptions;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
-namespace MyRecipeBook.Application.UseCases.User.Register;
+namespace EcommerceProjectUFSC.Application.UseCases.User.Register;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
 {
@@ -36,7 +36,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     {
         await Validate(request);
 
-        var user = _mapper.Map<RequestRegisterUserJson, Domain.Entities.User>(request);
+        var user = _mapper.Map<RequestRegisterUserJson, MyRecipeBook.Domain.Entities.User>(request);
 
         user.Password = PasswordEncrypter.Encrypt(request.Password);
         user.UserIdentifier = Guid.NewGuid();

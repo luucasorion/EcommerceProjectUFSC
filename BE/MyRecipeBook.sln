@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{FE36
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.API", "src\Backend\EcommerceProjectUFSC.API\EcommerceProjectUFSC.API.csproj", "{AA59FE05-E932-471E-994B-50D45337C6C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Application", "src\Backend\MyRecipeBook.Application\MyRecipeBook.Application.csproj", "{3E1E6C51-2587-4F2A-A4BC-543F9DC53B9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Application", "src\Backend\EcommerceProjectUFSC.Application\EcommerceProjectUFSC.Application.csproj", "{3E1E6C51-2587-4F2A-A4BC-543F9DC53B9C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Domain", "src\Backend\MyRecipeBook.Domain\MyRecipeBook.Domain.csproj", "{CA59020C-A76A-4893-80F3-449D97E9A341}"
 EndProject

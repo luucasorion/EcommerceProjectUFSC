@@ -2,7 +2,7 @@ using CommonTestUtilities.Entities;
 using CommonTestUtilities.LoggedUser;
 using CommonTestUtilities.Mapper;
 using FluentAssertions;
-using MyRecipeBook.Application.UseCases.User.Profile;
+using EcommerceProjectUFSC.Application.UseCases.User.Profile;
 
 namespace UseCases.Test.User.Profile;
 

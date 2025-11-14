@@ -3,7 +3,7 @@ using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Request;
 using CommonTestUtilities.Tokens;
 using FluentAssertions;
-using MyRecipeBook.Application.UseCases.Login.DoLogin;
+using EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Exceptions;
 using MyRecipeBook.Exceptions.ExceptionsBase;

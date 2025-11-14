@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using MyRecipeBook.Application.UseCases.Login.DoLogin;
+using EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 
 namespace EcommerceProjectUFSC.API.Controllers;
 
-public class LoginController : MyRecipeBookBaseController
+public class LoginController : EcommerceProjectUFSCBaseController
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status200OK)]

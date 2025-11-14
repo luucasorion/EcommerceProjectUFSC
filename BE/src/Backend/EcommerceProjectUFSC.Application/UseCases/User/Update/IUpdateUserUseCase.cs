@@ -1,6 +1,6 @@
 using MyRecipeBook.Communication.Requests;
 
-namespace MyRecipeBook.Application.UseCases.User.Update;
+namespace EcommerceProjectUFSC.Application.UseCases.User.Update;
 
 public interface IUpdateUserUseCase 
 {

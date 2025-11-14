@@ -1,11 +1,11 @@
-using MyRecipeBook.Application.Services.Cryptography;
+using EcommerceProjectUFSC.Application.Services.Cryptography;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Domain.Repositories.User;
 using MyRecipeBook.Domain.Security.Tokens;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
-namespace MyRecipeBook.Application.UseCases.Login.DoLogin;
+namespace EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
 
 public class DoLoginUseCase : IDoLoginUseCase
 {

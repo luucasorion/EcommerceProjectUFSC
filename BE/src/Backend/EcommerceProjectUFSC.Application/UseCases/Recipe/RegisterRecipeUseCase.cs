@@ -6,7 +6,7 @@ using MyRecipeBook.Domain.Repositories.Recipe;
 using MyRecipeBook.Domain.Repositories.User;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
-namespace MyRecipeBook.Application.UseCases.Recipe;
+namespace EcommerceProjectUFSC.Application.UseCases.Recipe;
 
 public class RegisterRecipeUseCase : IRegisterRecipeUseCase
 {
@@ -26,7 +26,7 @@ public class RegisterRecipeUseCase : IRegisterRecipeUseCase
     {
         Validate(request);
         
-        var recipe = _mapper.Map<Domain.Entities.Recipe>(request);
+        var recipe = _mapper.Map<MyRecipeBook.Domain.Entities.Recipe>(request);
 
         await _repository.Add(recipe);
         var mapperReturn = _mapper.Map<ResponseRegisteredRecipeJson>(recipe);

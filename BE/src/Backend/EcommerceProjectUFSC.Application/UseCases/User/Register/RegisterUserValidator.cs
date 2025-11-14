@@ -2,7 +2,7 @@ using FluentValidation;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Exceptions;
 
-namespace MyRecipeBook.Application.UseCases.User.Register;
+namespace EcommerceProjectUFSC.Application.UseCases.User.Register;
 
 public class RegisterUserValidator : AbstractValidator<RequestRegisterUserJson>
 {

@@ -5,7 +5,7 @@ using MyRecipeBook.Domain.Services.LoggedUser;
 using MyRecipeBook.Exceptions;
 using MyRecipeBook.Exceptions.ExceptionsBase;
 
-namespace MyRecipeBook.Application.UseCases.User.Update;
+namespace EcommerceProjectUFSC.Application.UseCases.User.Update;
 
 public class UpdateUserUseCase : IUpdateUserUseCase
 {

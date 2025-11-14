@@ -1,13 +1,13 @@
 using EcommerceProjectUFSC.API.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using MyRecipeBook.Application.UseCases.Recipe;
+using EcommerceProjectUFSC.Application.UseCases.Recipe;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 
 namespace EcommerceProjectUFSC.API.Controllers;
 
 [AuthenticatedUser]
-public class RecipeController : MyRecipeBookBaseController
+public class ProductsController : EcommerceProjectUFSCBaseController
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredRecipeJson), StatusCodes.Status201Created)]

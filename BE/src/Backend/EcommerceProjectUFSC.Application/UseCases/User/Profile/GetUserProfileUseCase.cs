@@ -2,7 +2,7 @@ using AutoMapper;
 using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Domain.Services.LoggedUser;
 
-namespace MyRecipeBook.Application.UseCases.User.Profile;
+namespace EcommerceProjectUFSC.Application.UseCases.User.Profile;
 
 public class GetUserProfileUseCase : IGetUserProfileUseCase
 {
