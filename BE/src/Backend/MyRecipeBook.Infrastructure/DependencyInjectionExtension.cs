@@ -3,20 +3,20 @@ using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyRecipeBook.Domain.Repositories;
-using MyRecipeBook.Domain.Repositories.Recipe;
-using MyRecipeBook.Domain.Repositories.User;
-using MyRecipeBook.Domain.Security.Tokens;
-using MyRecipeBook.Domain.Services.LoggedUser;
-using MyRecipeBook.Infrastructure.DataAccess.Repositories;
-using MyRecipeBook.Infrastructure.DataAcess;
-using MyRecipeBook.Infrastructure.DataAcess.Repositories;
-using MyRecipeBook.Infrastructure.Extensions;
-using MyRecipeBook.Infrastructure.Security.Tokens.Access.Generator;
-using MyRecipeBook.Infrastructure.Security.Tokens.Access.Validator;
-using MyRecipeBook.Infrastructure.Services.LoggedUser;
+using EcommerceProjectUFSC.Domain.Repositories;
+using EcommerceProjectUFSC.Domain.Repositories.Recipe;
+using EcommerceProjectUFSC.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Domain.Services.LoggedUser;
+using EcommerceProjectUFSC.Infrastructure.DataAccess.Repositories;
+using EcommerceProjectUFSC.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAcess.Repositories;
+using EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Generator;
+using EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Validator;
+using EcommerceProjectUFSC.Infrastructure.Services.LoggedUser;
+using EcommerceProjectUFSC.Infrastructure.Extensions;
 
-namespace MyRecipeBook.Infrastructure;
+namespace EcommerceProjectUFSC.Infrastructure;
 
 public static class DependencyInjectionExtension
 {

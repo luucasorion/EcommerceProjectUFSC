@@ -1,5 +1,5 @@
-using MyRecipeBook.Domain.Security.Tokens;
-using MyRecipeBook.Infrastructure.Security.Tokens.Access.Generator;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Generator;
 
 namespace CommonTestUtilities.Tokens;
 

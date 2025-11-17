@@ -1,6 +1,6 @@
 using Moq;
-using MyRecipeBook.Domain.Entities;
-using MyRecipeBook.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Repositories.User;
 
 namespace CommonTestUtilities.Repositories;
 

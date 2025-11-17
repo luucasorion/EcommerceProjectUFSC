@@ -1,5 +1,5 @@
 using AutoMapper;
-using MyRecipeBook.Application.Services.AutoMapper;
+using EcommerceProjectUFSC.Application.Services.AutoMapper;
 
 namespace CommonTestUtilities.Mapper;
 

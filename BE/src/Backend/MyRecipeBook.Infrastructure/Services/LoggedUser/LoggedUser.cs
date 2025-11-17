@@ -1,12 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
-using MyRecipeBook.Domain.Entities;
-using MyRecipeBook.Domain.Security.Tokens;
-using MyRecipeBook.Domain.Services.LoggedUser;
-using MyRecipeBook.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Domain.Services.LoggedUser;
+using EcommerceProjectUFSC.Infrastructure.DataAcess;
 
-namespace MyRecipeBook.Infrastructure.Services.LoggedUser;
+namespace EcommerceProjectUFSC.Infrastructure.Services.LoggedUser;
 
 public class LoggedUser : ILoggedUser
 {

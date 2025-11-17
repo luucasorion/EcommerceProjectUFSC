@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using MyRecipeBook.Domain.Entities;
-using MyRecipeBook.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Repositories.User;
 
-namespace MyRecipeBook.Infrastructure.DataAcess.Repositories;
+namespace EcommerceProjectUFSC.Infrastructure.DataAcess.Repositories;
 
 public class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository, IUserUpdateOnlyRepository
 {

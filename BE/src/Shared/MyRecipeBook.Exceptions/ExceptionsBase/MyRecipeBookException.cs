@@ -1,4 +1,4 @@
-namespace MyRecipeBook.Exceptions.ExceptionsBase;
+namespace EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 public class MyRecipeBookException : SystemException
 {

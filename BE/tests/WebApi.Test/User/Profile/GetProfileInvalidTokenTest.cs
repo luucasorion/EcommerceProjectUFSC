@@ -4,7 +4,7 @@ using System.Text.Json;
 using CommonTestUtilities.Request;
 using CommonTestUtilities.Tokens;
 using FluentAssertions;
-using MyRecipeBook.Exceptions;
+using EcommerceProjectUFSC.Exceptions;
 using WebApi.Test.InlineData;
 
 namespace WebApi.Test.User.Profile;

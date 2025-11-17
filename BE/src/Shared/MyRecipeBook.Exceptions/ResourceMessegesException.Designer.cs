@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyRecipeBook.Exceptions {
+namespace EcommerceProjectUFSC.Exceptions {
     using System;
     
     

@@ -1,4 +1,4 @@
-﻿namespace MyRecipeBook.Communication.Requests;
+﻿namespace EcommerceProjectUFSC.Communication.Requests;
 
 public class RequestRegisterUserJson
 {

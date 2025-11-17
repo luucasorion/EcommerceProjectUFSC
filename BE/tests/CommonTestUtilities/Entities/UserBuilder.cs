@@ -1,7 +1,7 @@
 using Bogus;
 using CommonTestUtilities.Cryptography;
-using MyRecipeBook.Application.Services.Cryptography;
-using MyRecipeBook.Domain.Entities;
+using EcommerceProjectUFSC.Application.Services.Cryptography;
+using EcommerceProjectUFSC.Domain.Entities;
 
 namespace CommonTestUtilities.Entities;
 

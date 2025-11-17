@@ -1,5 +1,5 @@
 using Moq;
-using MyRecipeBook.Domain.Repositories.User;
+using EcommerceProjectUFSC.Domain.Repositories.User;
 
 namespace CommonTestUtilities.Repositories;
 

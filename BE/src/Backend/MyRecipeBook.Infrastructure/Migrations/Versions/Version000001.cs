@@ -1,6 +1,6 @@
 using FluentMigrator;
 
-namespace MyRecipeBook.Infrastructure.Migrations.Versions;
+namespace EcommerceProjectUFSC.Infrastructure.Migrations.Versions;
 
 [Migration(1, "Create schema to save the user's information")]
 public class Version000001 : VersionBase   

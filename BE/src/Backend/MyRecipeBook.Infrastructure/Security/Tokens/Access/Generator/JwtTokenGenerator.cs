@@ -2,9 +2,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using MyRecipeBook.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
 
-namespace MyRecipeBook.Infrastructure.Security.Tokens.Access.Generator;
+namespace EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Generator;
 
 public class JwtTokenGenerator : JwtTokenHandler, IAccessTokenGenerator
 {

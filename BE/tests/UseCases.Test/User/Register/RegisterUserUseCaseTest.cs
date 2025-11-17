@@ -4,11 +4,11 @@ using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Request;
 using CommonTestUtilities.Tokens;
 using FluentAssertions;
-using MyRecipeBook.Application.UseCases.User.Register;
-using MyRecipeBook.Domain.Security.Tokens;
-using MyRecipeBook.Exceptions;
-using MyRecipeBook.Exceptions.ExceptionsBase;
-using MyRecipeBook.Infrastructure.Security.Tokens.Access.Generator;
+using EcommerceProjectUFSC.Application.UseCases.User.Register;
+using EcommerceProjectUFSC.Domain.Security.Tokens;
+using EcommerceProjectUFSC.Exceptions;
+using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
+using EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Generator;
 
 namespace UseCases.Test.User.Register;
 

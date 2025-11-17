@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MyRecipeBook.Domain\MyRecipeBook.Domain.csproj" />
+      <ProjectReference Include="..\EcommerceProjectUFSC.Domain\EcommerceProjectUFSC.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,6 +1,6 @@
 using Moq;
-using MyRecipeBook.Domain.Entities;
-using MyRecipeBook.Domain.Services.LoggedUser;
+using EcommerceProjectUFSC.Domain.Entities;
+using EcommerceProjectUFSC.Domain.Services.LoggedUser;
 
 namespace CommonTestUtilities.LoggedUser;
 
