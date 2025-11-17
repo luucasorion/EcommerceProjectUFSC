@@ -11,13 +11,13 @@ namespace EcommerceProjectUFSC.API.Filters;
 
 public class AuthenticatedUserFilter : IAsyncAuthorizationFilter
 {
-    private readonly IAccessTokenValidator _accesstokenValidator;
+    private readonly IAccessTokenValidator _accessTokenValidator;
     private readonly IUserReadOnlyRepository _repository;
 
     public AuthenticatedUserFilter(IAccessTokenValidator accessTokenValidator, IUserReadOnlyRepository repository)
     {
+        _accessTokenValidator = accessTokenValidator;
         _repository = repository;
-        _accesstokenValidator = accessTokenValidator;
     }
 
     public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
@@ -25,7 +25,7 @@ public class AuthenticatedUserFilter : IAsyncAuthorizationFilter
         try
         {
             var token = TokenOnRequest(context);
-            var userIdentifier = _accesstokenValidator.ValidateAndGetUserIdentifier(token);
+            var userIdentifier = _accessTokenValidator.ValidateAndGetUserIdentifier(token);
 
             var exist = await _repository.ExistActiveUserWithIdentifier(userIdentifier);
             if (exist == false)

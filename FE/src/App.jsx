@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 async function loginUser(email, password) {
-    const response = await fetch('https://localhost:7273/login', {
+    const response = await fetch('ecommerceprojectufsc-cfh3hqf0brgthrd9.eastus2-01.azurewebsites.net/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -19,7 +19,7 @@ async function loginUser(email, password) {
 }
 
 async function registerUser(name, email, password) {
-    const response = await fetch('https://localhost:7273/user', {
+    const response = await fetch('ecommerceprojectufsc-cfh3hqf0brgthrd9.eastus2-01.azurewebsites.net/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
