@@ -9,7 +9,7 @@ using WebApi.Test.InlineData;
 
 namespace WebApi.Test.Login.DoLogin;
 
-public class DoLoginTest : MyRecipeBookClassFixture
+public class DoLoginTest : EcommerceProjectUfscClassFixture
 {
     private const string Method = "login";
 

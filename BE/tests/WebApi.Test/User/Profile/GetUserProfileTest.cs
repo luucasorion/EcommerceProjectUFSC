@@ -9,7 +9,7 @@ using WebApi.Test.InlineData;
 
 namespace WebApi.Test.User.Profile;
 
-public class GetUserProfileTest : MyRecipeBookClassFixture
+public class GetUserProfileTest : EcommerceProjectUfscClassFixture
 {
     private const string Method = "user";
 

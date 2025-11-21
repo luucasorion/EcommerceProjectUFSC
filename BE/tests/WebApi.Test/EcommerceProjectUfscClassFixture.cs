@@ -3,11 +3,11 @@ using System.Net.Http.Json;
 
 namespace WebApi.Test;
 
-public class MyRecipeBookClassFixture :IClassFixture<CustomWebApplicationFactory> 
+public class EcommerceProjectUfscClassFixture :IClassFixture<CustomWebApplicationFactory> 
 {
     private readonly HttpClient _httpClient;
 
-    protected MyRecipeBookClassFixture(CustomWebApplicationFactory factory)
+    protected EcommerceProjectUfscClassFixture(CustomWebApplicationFactory factory)
     {
         _httpClient = factory.CreateClient();
     }
