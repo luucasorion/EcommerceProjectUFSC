@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { loginUser, registerUser } from "../api/authService";
+import { loginUser, registerUser } from "../api/userService.js";
 import { ToastContainer, toast } from "react-toastify";
 
 
