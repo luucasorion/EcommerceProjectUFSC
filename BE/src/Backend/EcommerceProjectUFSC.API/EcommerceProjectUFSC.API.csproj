@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Shared\EcommerceProjectUFSC.Communication\EcommerceProjectUFSC.Communication.csproj" />
-      <ProjectReference Include="..\..\Shared\MyRecipeBook.Exceptions\MyRecipeBook.Exceptions.csproj" />
+      <ProjectReference Include="..\..\Shared\EcommerceProjectUFSC.Exceptions\EcommerceProjectUFSC.Exceptions.csproj" />
       <ProjectReference Include="..\EcommerceProjectUFSC.Application\EcommerceProjectUFSC.Application.csproj" />
       <ProjectReference Include="..\EcommerceProjectUFSC.Infrastructure\EcommerceProjectUFSC.Infrastructure.csproj" />
     </ItemGroup>
