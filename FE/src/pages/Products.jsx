@@ -49,7 +49,9 @@ export default function Products() {
             <header>
                 <nav className="navbar bg-body-tertiary fixed-top">
                     <div className="container-fluid">
-                        <a className="navbar-brand">EcommerceProjectUFSC</a>
+                        <a className="navbar-brand" href="/">
+                            EcommerceProjectUFSC
+                        </a>
 
                         <div className="d-flex align-items-center gap-3">
 
@@ -68,10 +70,20 @@ export default function Products() {
                                     width: 40,
                                     height: 40,
                                     borderRadius: "50%",
-                                    backgroundColor: "#bbb",
+                                    overflow: "hidden",
                                     display: "block"
                                 }}
-                            />
+                            >
+                                <img
+                                    src="/pfp.jpg"
+                                    alt="User"
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover"
+                                    }}
+                                />
+                            </a>
                         </div>
                     </div>
                 </nav>

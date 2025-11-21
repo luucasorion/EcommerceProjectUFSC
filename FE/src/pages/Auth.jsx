@@ -39,7 +39,9 @@ export default function AuthPage() {
             <header>
                 <nav className="navbar bg-body-tertiary fixed-top">
                     <div className="container-fluid">
-                        <a className="navbar-brand">EcommerceProjectUFSC</a>
+                        <a className="navbar-brand" href="/">
+                            EcommerceProjectUFSC
+                        </a>
 
                         <div className="d-flex">
                             <input
