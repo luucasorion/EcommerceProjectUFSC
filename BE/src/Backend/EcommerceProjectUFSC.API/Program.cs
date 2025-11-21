@@ -80,6 +80,7 @@ app.UseMiddleware<CultureMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseDeveloperExceptionPage();
 
 if (app.Environment.IsDevelopment())
 {
