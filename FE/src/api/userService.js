@@ -1,5 +1,7 @@
+const API_URL = "https://ecommerceprojectufsc-cfh3hqf0brgthrd9.eastus2-01.azurewebsites.net"
+
 export async function getUser(token) {
-    const response = await fetch('https://localhost:7273/user', {
+    const response = await fetch(API_URL + '/user', {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`
@@ -9,7 +11,7 @@ export async function getUser(token) {
 }
 
 export async function updateUser(token, data) {
-    await fetch('https://localhost:7273/user', {
+    await fetch(API_URL + '/user', {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -22,7 +24,7 @@ export async function updateUser(token, data) {
 
 export async function loginUser(email, password) {
     const response = await fetch(
-        'https://localhost:7273/login',
+        API_URL + '/login',
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -41,7 +43,7 @@ export async function loginUser(email, password) {
 }
 
 export async function registerUser(name, email, password) {
-    const response = await fetch('https://localhost:7273/user', {
+    const response = await fetch(API_URL + '/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
