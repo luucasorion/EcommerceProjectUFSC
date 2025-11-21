@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C8E429
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Communication", "src\Shared\EcommerceProjectUFSC.Communication\EcommerceProjectUFSC.Communication.csproj", "{E7BF54FA-BE1F-4CB1-8BAA-72F2AD44331B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Exceptions", "src\Shared\MyRecipeBook.Exceptions\MyRecipeBook.Exceptions.csproj", "{C41BDEB0-BD53-468B-A5C2-AC3706C63DE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Exceptions", "src\Shared\EcommerceProjectUFSC.Exceptions\EcommerceProjectUFSC.Exceptions.csproj", "{C41BDEB0-BD53-468B-A5C2-AC3706C63DE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F2E2FF6F-2BF7-4538-87C1-89F52C2C96E1}"
 EndProject

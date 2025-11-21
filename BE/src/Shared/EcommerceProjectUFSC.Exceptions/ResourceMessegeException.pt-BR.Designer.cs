@@ -38,7 +38,7 @@ namespace EcommerceProjectUFSC.Exceptions {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MyRecipeBook.Exceptions.ResourceMessegeException.pt-BR", typeof(ResourceMessegeException_pt_BR).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EcommerceProjectUFSC.Exceptions.ResourceMessegeException.pt-BR", typeof(ResourceMessegeException_pt_BR).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
