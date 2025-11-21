@@ -36,7 +36,7 @@ public class ExceptionFilter : IExceptionFilter
 
     private static void ThrowUnknowException(ExceptionContext context)
     {
-        context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        context.HttpContext.Response.StatusCode = StatusCodes.Status409Conflict;
         context.Result = new ObjectResult(new ResponseErrorJson(ResourceMessegesException.UNKNOWN_ERROR));
     }
 }
