@@ -9,7 +9,7 @@ using WebApi.Test.InlineData;
 
 namespace WebApi.Test.User.Profile;
 
-public class GetProfileInvalidTokenTest : MyRecipeBookClassFixture
+public class GetProfileInvalidTokenTest : EcommerceProjectUfscClassFixture
 {
     private const string Method = "user";
 

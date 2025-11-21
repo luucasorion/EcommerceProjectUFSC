@@ -4,9 +4,9 @@ namespace EcommerceProjectUFSC.Infrastructure.DataAcess;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly MyRecipeBookDbContext _dbContext;
+    private readonly EcommerceProjectUFSCDbContext _dbContext;
 
-    public UnitOfWork(MyRecipeBookDbContext dbContext)
+    public UnitOfWork(EcommerceProjectUFSCDbContext dbContext)
     {
         _dbContext = dbContext;
     }

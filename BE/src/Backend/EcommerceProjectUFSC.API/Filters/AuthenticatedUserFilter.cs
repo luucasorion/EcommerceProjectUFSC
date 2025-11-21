@@ -30,7 +30,7 @@ public class AuthenticatedUserFilter : IAsyncAuthorizationFilter
             var exist = await _repository.ExistActiveUserWithIdentifier(userIdentifier);
             if (exist == false)
             {
-                throw new MyRecipeBookException(ResourceMessegesException.USER_WITHOUT_PERMISSION_ACCESS_RESOURCE);
+                throw new EcommerceProjectUFSCException(ResourceMessegesException.USER_WITHOUT_PERMISSION_ACCESS_RESOURCE);
             }
         }
         catch (SecurityTokenExpiredException)
@@ -40,7 +40,7 @@ public class AuthenticatedUserFilter : IAsyncAuthorizationFilter
                 TokenIsExpired = true
             });
         }
-        catch (MyRecipeBookException ex)
+        catch (EcommerceProjectUFSCException ex)
         {
             context.Result = new UnauthorizedObjectResult(new ResponseErrorJson(ex.Message));
         }
@@ -57,7 +57,7 @@ public class AuthenticatedUserFilter : IAsyncAuthorizationFilter
         var authentication = context.HttpContext.Request.Headers.Authorization.ToString();
         if (string.IsNullOrWhiteSpace(authentication))
         {
-            throw new MyRecipeBookException(ResourceMessegesException.TOKEN_EMPTY);
+            throw new EcommerceProjectUFSCException(ResourceMessegesException.TOKEN_EMPTY);
         }
 
         return authentication["Bearer ".Length..].Trim();

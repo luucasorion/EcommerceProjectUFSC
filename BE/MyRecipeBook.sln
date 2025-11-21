@@ -10,11 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Applic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Domain", "src\Backend\EcommerceProjectUFSC.Domain\EcommerceProjectUFSC.Domain.csproj", "{CA59020C-A76A-4893-80F3-449D97E9A341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Infrastructure", "src\Backend\MyRecipeBook.Infrastructure\MyRecipeBook.Infrastructure.csproj", "{530FEA20-E45C-45A1-AE6E-5B3A3F9DF93E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Infrastructure", "src\Backend\EcommerceProjectUFSC.Infrastructure\EcommerceProjectUFSC.Infrastructure.csproj", "{530FEA20-E45C-45A1-AE6E-5B3A3F9DF93E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C8E42992-5E42-0C2B-DBFE-AA848D06431C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Communication", "src\Shared\MyRecipeBook.Communication\MyRecipeBook.Communication.csproj", "{E7BF54FA-BE1F-4CB1-8BAA-72F2AD44331B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceProjectUFSC.Communication", "src\Shared\EcommerceProjectUFSC.Communication\EcommerceProjectUFSC.Communication.csproj", "{E7BF54FA-BE1F-4CB1-8BAA-72F2AD44331B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRecipeBook.Exceptions", "src\Shared\MyRecipeBook.Exceptions\MyRecipeBook.Exceptions.csproj", "{C41BDEB0-BD53-468B-A5C2-AC3706C63DE6}"
 EndProject

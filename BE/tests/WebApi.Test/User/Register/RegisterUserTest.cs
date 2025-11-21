@@ -13,7 +13,7 @@ using Xunit.Abstractions;
 
 namespace WebApi.Test.User.Register;
 
-public class RegisterUserTest : MyRecipeBookClassFixture
+public class RegisterUserTest : EcommerceProjectUfscClassFixture
 {
     
     private const string Method = "user";

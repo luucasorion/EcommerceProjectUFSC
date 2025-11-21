@@ -17,7 +17,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         builder.UseEnvironment("Test")
             .ConfigureServices(services =>
             {
-                var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<MyRecipeBookDbContext>));
+                var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<EcommerceProjectUFSCDbContext>));
                 if (descriptor is not null)
                 {
                     services.Remove(descriptor);
@@ -25,7 +25,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
                 var provider = services.AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
 
-                services.AddDbContext<MyRecipeBookDbContext>(options =>
+                services.AddDbContext<EcommerceProjectUFSCDbContext>(options =>
                 {
                     options.UseInMemoryDatabase("InMemoryDbForTesting");
                     options.UseInternalServiceProvider(provider);
@@ -33,7 +33,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 
                 using var scope = services.BuildServiceProvider().CreateScope();
                 
-                var dbContext = scope.ServiceProvider.GetRequiredService<MyRecipeBookDbContext>();
+                var dbContext = scope.ServiceProvider.GetRequiredService<EcommerceProjectUFSCDbContext>();
                 
                 dbContext.Database.EnsureDeleted();
                 
@@ -46,7 +46,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     public string GetName() => _user.Name;
     public Guid GetUserIdentifier() => _user.UserIdentifier; 
 
-    private void StartDataBase(MyRecipeBookDbContext dbContext)
+    private void StartDataBase(EcommerceProjectUFSCDbContext dbContext)
     {
         (_user, _password) = UserBuilder.Build();
         

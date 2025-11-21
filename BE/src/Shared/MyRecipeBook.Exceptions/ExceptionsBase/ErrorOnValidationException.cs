@@ -1,6 +1,6 @@
 namespace EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
-public class ErrorOnValidationException : MyRecipeBookException
+public class ErrorOnValidationException : EcommerceProjectUFSCException
 {
     public IList<string> ErrorMessages { get; set; }
 
