@@ -22,7 +22,7 @@ export default function ProfilePage() {
     function handleSubmit(e) {
         e.preventDefault();
         updateUser(token, { name, email }).then(() => {
-            window.location.reload();
+            window.location.href = "/";
         });
     }
 

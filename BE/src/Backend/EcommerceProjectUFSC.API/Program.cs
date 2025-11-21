@@ -74,16 +74,19 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseCors("AllowFrontend");
 app.UseMiddleware<CultureMiddleware>();
+
+// Adição do Middleware Global:
+app.UseGlobalExceptionHandler();
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-app.UseDeveloperExceptionPage();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); 
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
