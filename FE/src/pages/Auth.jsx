@@ -72,13 +72,9 @@ export default function AuthPage() {
 
             <main className="container-fluid pt-5 vh-100">
                 <div className="row h-100">
-                    <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-start ps-5 bg-light">
-                        <h1 className="display-5 fw-bold">Bem-vindo ao Ecommerce UFSC</h1>
-                        <p className="lead">Crie sua conta e aproveite nossas ofertas!</p>
-                    </div>
-
-                    <div className="col-md-6 d-flex justify-content-end align-items-center bg-white pe-5">
-                        <form className="w-75 shadow p-4 rounded" onSubmit={handleRegister}>
+                    <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-start ps-5 bg-light"/>
+                    <div className="col-md-6 d-flex justify-content-center align-items-center bg-white p-4">
+                        <form className="w-100 w-md-75 shadow p-4 rounded" onSubmit={handleRegister}>
                             <h2 className="mb-4 text-center">Registrar</h2>
 
                             <div className="mb-3">
@@ -126,4 +122,5 @@ export default function AuthPage() {
             </main>
         </>
     );
+
 }
