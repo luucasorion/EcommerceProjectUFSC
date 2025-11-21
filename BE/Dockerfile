@@ -3,9 +3,9 @@ WORKDIR /app
 
 COPY src/ .
 
-WORKDIR Backend/MyRecipeBook.API
-
+WORKDIR /app/BE/src/Backend/EcommerceProjectUFSC.API
 RUN dotnet restore
+
 RUN dotnet publish -c Realease -o /app/out
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
