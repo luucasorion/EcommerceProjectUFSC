@@ -1,7 +1,8 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
 WORKDIR /app
 
-COPY src/ .
+COPY BE ./BE
+
 
 WORKDIR /app/BE/src/Backend/EcommerceProjectUFSC.API
 RUN dotnet restore
