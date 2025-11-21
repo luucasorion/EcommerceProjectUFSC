@@ -61,7 +61,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddHealthChecks().AddDbContextCheck<MyRecipeBookDbContext>();
+builder.Services.AddHealthChecks().AddDbContextCheck<EcommerceProjectUFSCDbContext>();
 
 builder.Services.AddCors(options =>
 {

@@ -10,11 +10,11 @@ using EcommerceProjectUFSC.Domain.Security.Tokens;
 using EcommerceProjectUFSC.Domain.Services.LoggedUser;
 using EcommerceProjectUFSC.Infrastructure.DataAccess.Repositories;
 using EcommerceProjectUFSC.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.Extensions;
 using EcommerceProjectUFSC.Infrastructure.DataAcess.Repositories;
 using EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Generator;
 using EcommerceProjectUFSC.Infrastructure.Security.Tokens.Access.Validator;
 using EcommerceProjectUFSC.Infrastructure.Services.LoggedUser;
-using EcommerceProjectUFSC.Infrastructure.Extensions;
 
 namespace EcommerceProjectUFSC.Infrastructure;
 
@@ -39,7 +39,7 @@ public static class DependencyInjectionExtension
     {
         var connectionString = configuration.ConnectionString();
 
-        services.AddDbContext<MyRecipeBookDbContext>(dbContextOptions =>
+        services.AddDbContext<EcommerceProjectUFSCDbContext>(dbContextOptions =>
         {
             dbContextOptions.UseSqlServer(connectionString);
         });
@@ -63,7 +63,7 @@ public static class DependencyInjectionExtension
             options
                 .AddSqlServer()
                 .WithGlobalConnectionString(connectionString)
-                .ScanIn(Assembly.Load("MyRecipeBook.Infrastructure")).For.All();
+                .ScanIn(Assembly.Load("EcommerceProjectUFSC.Infrastructure")).For.All();
         });
     }
 

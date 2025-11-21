@@ -3,9 +3,9 @@ using EcommerceProjectUFSC.Domain.Entities;
 
 namespace EcommerceProjectUFSC.Infrastructure.DataAcess;
 
-public class MyRecipeBookDbContext : DbContext
+public class EcommerceProjectUFSCDbContext : DbContext
 {
-    public MyRecipeBookDbContext(DbContextOptions options) : base(options)
+    public EcommerceProjectUFSCDbContext(DbContextOptions options) : base(options)
     {
     }
     
@@ -15,6 +15,6 @@ public class MyRecipeBookDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MyRecipeBookDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EcommerceProjectUFSCDbContext).Assembly);
     }
 }

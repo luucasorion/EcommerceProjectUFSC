@@ -10,7 +10,7 @@ public class ExceptionFilter : IExceptionFilter
 {
     public void OnException(ExceptionContext context)
     {
-        if (context.Exception is MyRecipeBookException)
+        if (context.Exception is EcommerceProjectUFSCException)
         {
             HandleProjectException(context);
         }

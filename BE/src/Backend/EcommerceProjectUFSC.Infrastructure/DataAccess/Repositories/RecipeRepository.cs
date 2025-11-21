@@ -6,9 +6,9 @@ namespace EcommerceProjectUFSC.Infrastructure.DataAccess.Repositories;
 
 public class RecipeRepository : IRecipeWriteOnlyRepository
 {
-    private readonly MyRecipeBookDbContext _dbContext;
+    private readonly EcommerceProjectUFSCDbContext _dbContext;
     
-    public RecipeRepository(MyRecipeBookDbContext dbContext)
+    public RecipeRepository(EcommerceProjectUFSCDbContext dbContext)
     {
         _dbContext = dbContext;
     }

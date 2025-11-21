@@ -10,10 +10,10 @@ namespace EcommerceProjectUFSC.Infrastructure.Services.LoggedUser;
 
 public class LoggedUser : ILoggedUser
 {
-    private readonly MyRecipeBookDbContext _dbContext;
+    private readonly EcommerceProjectUFSCDbContext _dbContext;
     private readonly ITokenProvider  _tokenProvider;
     
-    public LoggedUser(MyRecipeBookDbContext dbContext,  ITokenProvider tokenProvider)
+    public LoggedUser(EcommerceProjectUFSCDbContext dbContext,  ITokenProvider tokenProvider)
     {
         _dbContext = dbContext;
         _tokenProvider = tokenProvider;
