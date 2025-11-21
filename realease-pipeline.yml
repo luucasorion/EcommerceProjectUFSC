@@ -30,7 +30,9 @@ steps:
     command: buildAndPush
     repository: $(imageRepository)
     dockerfile: $(dockerfilePath)
+    buildContext: .
     containerRegistry: $(dockerRegistryServiceConnection)
     tags: |
       latest
       $(tag)
+
