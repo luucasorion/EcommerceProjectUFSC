@@ -1,0 +1,36 @@
+export async function loginUser(email, password) {
+    const response = await fetch(
+        'https://localhost:7273/login',
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+        }
+    );
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+        const errorMessage = data.errors?.[0] || 'Erro ao fazer login';
+        throw new Error(errorMessage);
+    }
+
+    return data;
+}
+
+export async function registerUser(name, email, password) {
+    const response = await fetch('https://localhost:7273/user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+        const errorMessage = data.errors?.[0] || 'Erro ao registrar usuário';
+        throw new Error(errorMessage);
+    }
+
+    return data;
+}
