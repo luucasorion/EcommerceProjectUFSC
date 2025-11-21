@@ -21,7 +21,7 @@ steps:
     secureFile: 'appsettings.Production.json'
 
 - script: |
-    cp "$(appsettings.secureFilePath)" "BE/src/Backend/MyRecipeBook.API/appsettings.Production.json"
+    cp "$(appsettings.secureFilePath)" "BE/src/Backend/EcommerceProjectUFSC.API/appsettings.Production.json"
 
 
 - task: Docker@2
