@@ -74,7 +74,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseCors("AllowFrontend");
 app.UseMiddleware<CultureMiddleware>();
 app.UseHttpsRedirection();
