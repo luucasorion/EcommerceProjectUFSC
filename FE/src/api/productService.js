@@ -1,4 +1,4 @@
-const API_URL = "https://ecommerceprojectufsc-cfh3hqf0brgthrd9.eastus2-01.azurewebsites.net";
+const API_URL = "http://localhost:5056";
 
 export async function registerProduct(token, productData) {
     const response = await fetch(API_URL + '/products', {
@@ -17,4 +17,10 @@ export async function registerProduct(token, productData) {
     }
 
     return data;
+}
+
+export async function getProducts(page, pageSize) {
+    return await fetch(API_URL + `/products?page=${page}&pageSize=${pageSize}`, {
+        method: "GET"
+    });
 }

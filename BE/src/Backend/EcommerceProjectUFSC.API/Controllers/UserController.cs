@@ -8,7 +8,7 @@ using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.API.Controllers;
 
-public class UserController : EcommerceProjectUFSCBaseController
+public class UserController : EcommerceProjectUfscBaseController
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]

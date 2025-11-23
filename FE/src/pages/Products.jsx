@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {registerProduct} from "../api/productService.js";
+import {getProducts, registerProduct} from "../api/productService.js";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -11,38 +11,40 @@ export default function Products() {
 
     const token = localStorage.getItem("token");
 
+    const [page, setPage] = useState(1);
+    const pageSize = 8;
+    const [totalItems, setTotalItems] = useState(0);
+
     const [title, setTitle] = useState("");
     const [newPrice, setNewPrice] = useState("");
     const [newDescription, setNewDescription] = useState("");
     const [newImage, setNewImage] = useState("");
 
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    const loadProducts = async () => {
+        try {
+            const response = await getProducts(page, pageSize);
+
+            if (!response.ok) {
+                toast.error("Erro ao carregar produtos.");
+                return;
+            }
+
+            const data = await response.json();
+
+            setProducts(data.items);
+            setTotalItems(data.totalItems);
+        } catch (err) {
+            console.error(err);
+            toast.error("Erro ao conectar com o servidor.");
+        }
+    };
+
     useEffect(() => {
         setIsLoggedIn(!!token);
-
-        setProducts([
-            {
-                id: 1,
-                title: "Notebook Gamer",
-                price: 4500,
-                description: "Alto desempenho para jogos modernos.",
-                image: "https://placehold.co/600x400"
-            },
-            {
-                id: 2,
-                title: "Celular Ultra",
-                price: 2999,
-                description: "Câmera excelente e bateria de longa duração.",
-                image: "https://placehold.co/600x400"
-            },
-            {
-                id: 3,
-                title: "Teclado Mecânico",
-                price: 399,
-                description: "Switches confiáveis e iluminação RGB.",
-                image: "https://placehold.co/600x400"
-            }
-        ]);
-    }, []);
+        loadProducts();
+    }, [page]);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -54,26 +56,23 @@ export default function Products() {
         if (!title || !newPrice) return;
 
         try {
-            await registerProduct( token, {
-                title: title,
+            await registerProduct(token, {
+                title,
                 description: newDescription,
                 price: newPrice,
             });
 
+            toast.success("Produto adicionado!");
+            setShowModal(false);
+            loadProducts();
         } catch (err) {
             toast.error(err.message);
         }
-
-
-        setShowModal(false);
 
         setTitle("");
         setNewPrice("");
         setNewDescription("");
         setNewImage("");
-
-        toast.success("Produto adicionado!");
-
     };
 
     const handlePlusClick = () => {
@@ -145,12 +144,16 @@ export default function Products() {
                 </nav>
             </header>
 
-            <main className="container-fluid pt-5 vh-100">
+            <main className="container-fluid pt-5">
                 <div className="row mt-4">
                     {products.map((p) => (
                         <div key={p.id} className="col-sm-6 col-md-4 col-lg-3 mb-4">
                             <div className="card h-100 shadow-sm">
-                                <img src={p.image} className="card-img-top" alt={p.title} />
+                                <img
+                                    src={p.image || "https://placehold.co/600x400"}
+                                    className="card-img-top"
+                                    alt={p.title}
+                                />
 
                                 <div className="card-body d-flex flex-column">
                                     <h5 className="card-title">{p.title}</h5>
@@ -168,6 +171,25 @@ export default function Products() {
                     ))}
                 </div>
             </main>
+
+            <footer className="container pb-4 d-flex justify-content-center">
+                <ul className="pagination">
+                    {[...Array(totalPages)].map((_, i) => (
+                        <li
+                            key={i}
+                            className={`page-item ${page === i + 1 ? "active" : ""}`}
+                            style={{ cursor: "pointer" }}
+                        >
+                            <span
+                                className="page-link"
+                                onClick={() => setPage(i + 1)}
+                            >
+                                {i + 1}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </footer>
 
             {showModal && (
                 <div

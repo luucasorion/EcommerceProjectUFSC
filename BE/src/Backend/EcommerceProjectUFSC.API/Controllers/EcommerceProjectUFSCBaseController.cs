@@ -4,7 +4,7 @@ namespace EcommerceProjectUFSC.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class EcommerceProjectUFSCBaseController : ControllerBase
+public class EcommerceProjectUfscBaseController : ControllerBase
 {
     
 }

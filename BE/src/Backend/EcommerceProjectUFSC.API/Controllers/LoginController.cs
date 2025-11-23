@@ -5,7 +5,7 @@ using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.API.Controllers;
 
-public class LoginController : EcommerceProjectUFSCBaseController
+public class LoginController : EcommerceProjectUfscBaseController
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status200OK)]
