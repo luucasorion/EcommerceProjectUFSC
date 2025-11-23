@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { loginUser, registerUser } from "../api/userService.js";
 import { ToastContainer, toast } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AuthPage() {
     const [loginEmail, setLoginEmail] = useState("");
@@ -13,7 +13,11 @@ export default function AuthPage() {
 
     const handleLogin = async () => {
         try {
-            const data = await loginUser({loginEmail, loginPassword});
+            const data = await loginUser({
+                email: loginEmail,
+                password: loginPassword
+            });
+
             localStorage.setItem("token", data.tokens.accessToken);
             window.location.href = "/";
         } catch (err) {
@@ -23,8 +27,14 @@ export default function AuthPage() {
 
     const handleRegister = async (e) => {
         e.preventDefault();
+
         try {
-                const data = await registerUser({regName, regEmail, regPassword});
+            const data = await registerUser({
+                title: regName,
+                email: regEmail,
+                password: regPassword
+            });
+
             localStorage.setItem("token", data.tokens.accessToken);
             window.location.href = "/";
         } catch (err) {
@@ -72,7 +82,10 @@ export default function AuthPage() {
 
             <main className="container-fluid pt-5 vh-100">
                 <div className="row h-100">
-                    <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-start ps-5 bg-light"/>
+
+                    <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-start ps-5 bg-light">
+                    </div>
+
                     <div className="col-md-6 d-flex justify-content-center align-items-center bg-white p-4">
                         <form className="w-100 w-md-75 shadow p-4 rounded" onSubmit={handleRegister}>
                             <h2 className="mb-4 text-center">Registrar</h2>
@@ -122,5 +135,4 @@ export default function AuthPage() {
             </main>
         </>
     );
-
 }
