@@ -2,7 +2,7 @@ using FluentMigrator;
 
 namespace EcommerceProjectUFSC.Infrastructure.Migrations.Versions;
 
-[Migration(2, "Create schema to save Products's information")]
+[Migration(2, "Create schema to save recipes's information")]
 public class Version000002 : VersionBase   
 {
     public override void Up()

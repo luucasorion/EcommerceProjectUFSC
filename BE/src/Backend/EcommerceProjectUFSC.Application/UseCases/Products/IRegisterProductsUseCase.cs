@@ -1,9 +1,9 @@
 using EcommerceProjectUFSC.Communication.Requests;
 using EcommerceProjectUFSC.Communication.Responses;
 
-namespace EcommerceProjectUFSC.Application.UseCases.Recipe;
+namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
 public interface IRegisterProductsUseCase
 {
-    public Task<ResponseRegisteredRecipeJson> Execute(RequestRecipeJson request);
+    public Task<ResponseRegisteredProductJson> Execute(RequestProductsJson request);
 } 

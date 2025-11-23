@@ -1,4 +1,4 @@
-namespace EcommerceProjectUFSC.Domain.Repositories.Recipe;
+namespace EcommerceProjectUFSC.Domain.Repositories.Product;
 
 public interface IProductsWriteOnlyRepository
 {

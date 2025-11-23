@@ -1,9 +1,8 @@
 using AutoMapper;
-using EcommerceProjectUFSC.Application.UseCases.Recipe;
 using EcommerceProjectUFSC.Communication.Requests;
 using EcommerceProjectUFSC.Communication.Responses;
 using EcommerceProjectUFSC.Domain.Repositories;
-using EcommerceProjectUFSC.Domain.Repositories.Recipe;
+using EcommerceProjectUFSC.Domain.Repositories.Product;
 using EcommerceProjectUFSC.Exceptions.ExceptionsBase;
 
 namespace EcommerceProjectUFSC.Application.UseCases.Products;
@@ -22,21 +21,21 @@ public class RegisterProductsUseCase : IRegisterProductsUseCase
         _mapper = mapper;
     }
     
-    public async Task<ResponseRegisteredRecipeJson> Execute(RequestRecipeJson request)
+    public async Task<ResponseRegisteredProductJson> Execute(RequestProductsJson request)
     {
         Validate(request);
         
-        var recipe = _mapper.Map<Domain.Entities.Product>(request);
+        var product = _mapper.Map<Domain.Entities.Product>(request);
 
-        await _repository.Add(recipe);
-        var mapperReturn = _mapper.Map<ResponseRegisteredRecipeJson>(recipe);
+        await _repository.Add(product);
+        var mapperReturn = _mapper.Map<ResponseRegisteredProductJson>(product);
         
         await _unitOfWork.Commit();
         
         return mapperReturn;
     }
 
-    private static void Validate(RequestRecipeJson request)
+    private static void Validate(RequestProductsJson request)
     {
         var result = new ProductsValidator().Validate(request);
 

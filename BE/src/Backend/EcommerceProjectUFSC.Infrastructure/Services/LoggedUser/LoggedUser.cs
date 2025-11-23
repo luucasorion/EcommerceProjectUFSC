@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using EcommerceProjectUFSC.Domain.Entities;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
 using EcommerceProjectUFSC.Domain.Services.LoggedUser;
-using EcommerceProjectUFSC.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAccess;
+
 
 namespace EcommerceProjectUFSC.Infrastructure.Services.LoggedUser;
 

@@ -1,7 +1,5 @@
 using EcommerceProjectUFSC.Domain.Entities;
 using EcommerceProjectUFSC.Domain.Repositories.Product;
-using EcommerceProjectUFSC.Domain.Repositories.Recipe;
-using EcommerceProjectUFSC.Infrastructure.DataAcess;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceProjectUFSC.Infrastructure.DataAccess.Repositories;
@@ -17,13 +15,13 @@ public class ProductsRepository : IProductsWriteOnlyRepository, IProductReadOnly
     
     public async Task Add(Product product)
     {
-        await _dbContext.Recipes.AddAsync(product);
+        await _dbContext.Product.AddAsync(product);
     }
 
 
     public async Task<(IEnumerable<Product> Items, int TotalCount)> GetPagedAsync(int page, int pageSize)
     {
-        var query = _dbContext.Recipes.Where(p => p.Active);
+        var query = _dbContext.Product.Where(p => p.Active);
 
         var total = await query.CountAsync();
 
