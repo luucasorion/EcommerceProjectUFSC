@@ -1,6 +1,6 @@
 namespace EcommerceProjectUFSC.Communication.Requests;
 
-public class RequestRecipeJson
+public class RequestProductsJson
 {
     public string Title { get; set; } = string.Empty;
     

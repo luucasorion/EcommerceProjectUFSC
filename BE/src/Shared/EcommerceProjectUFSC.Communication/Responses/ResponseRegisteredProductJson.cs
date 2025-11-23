@@ -1,6 +1,6 @@
 namespace EcommerceProjectUFSC.Communication.Responses;
 
-public class ResponseRegisteredRecipeJson
+public class ResponseRegisteredProductJson
 {
     public string Title { get; set; } =  string.Empty;
 

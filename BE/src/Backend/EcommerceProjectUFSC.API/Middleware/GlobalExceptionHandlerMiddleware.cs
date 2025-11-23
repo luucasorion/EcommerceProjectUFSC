@@ -21,7 +21,7 @@ public class GlobalExceptionHandlerMiddleware
         {
             await _next(context);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = StatusCodes.Status500InternalServerError;

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using EcommerceProjectUFSC.Domain.Entities;
 using EcommerceProjectUFSC.Domain.Repositories.User;
 
-namespace EcommerceProjectUFSC.Infrastructure.DataAcess.Repositories;
+namespace EcommerceProjectUFSC.Infrastructure.DataAccess.Repositories;
 
 public class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository, IUserUpdateOnlyRepository
 {

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using EcommerceProjectUFSC.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAccess;
 
 namespace WebApi.Test;
 

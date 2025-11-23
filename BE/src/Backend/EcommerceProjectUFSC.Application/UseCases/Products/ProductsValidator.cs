@@ -2,9 +2,9 @@ using FluentValidation;
 using EcommerceProjectUFSC.Communication.Requests;
 using EcommerceProjectUFSC.Exceptions;
 
-namespace EcommerceProjectUFSC.Application.UseCases.Recipe;
+namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
-public class ProductsValidator : AbstractValidator<RequestRecipeJson>
+public class ProductsValidator : AbstractValidator<RequestProductsJson>
 {
     public ProductsValidator()
     {
