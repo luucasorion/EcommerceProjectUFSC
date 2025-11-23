@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using EcommerceProjectUFSC.Domain.Entities;
 
-namespace EcommerceProjectUFSC.Infrastructure.DataAcess;
+namespace EcommerceProjectUFSC.Infrastructure.DataAccess;
 
 public class EcommerceProjectUFSCDbContext : DbContext
 {
@@ -11,7 +11,7 @@ public class EcommerceProjectUFSCDbContext : DbContext
     
     public DbSet<User> Users { get; set; }
     
-    public DbSet<Product> Recipes { get; set; }
+    public DbSet<Product> Product { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

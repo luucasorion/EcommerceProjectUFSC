@@ -3,7 +3,6 @@ using EcommerceProjectUFSC.Application.Services.AutoMapper;
 using EcommerceProjectUFSC.Application.Services.Cryptography;
 using EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
 using EcommerceProjectUFSC.Application.UseCases.Products;
-using EcommerceProjectUFSC.Application.UseCases.Recipe;
 using EcommerceProjectUFSC.Application.UseCases.User.Profile;
 using EcommerceProjectUFSC.Application.UseCases.User.Register;
 using EcommerceProjectUFSC.Application.UseCases.User.Update;

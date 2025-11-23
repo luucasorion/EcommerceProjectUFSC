@@ -1,7 +1,6 @@
 using EcommerceProjectUFSC.API.Attributes;
 using EcommerceProjectUFSC.Application.UseCases.Products;
 using Microsoft.AspNetCore.Mvc;
-using EcommerceProjectUFSC.Application.UseCases.Recipe;
 using EcommerceProjectUFSC.Communication.Requests;
 using EcommerceProjectUFSC.Communication.Responses;
 
@@ -12,13 +11,13 @@ public class ProductsController : EcommerceProjectUfscBaseController
 {
     
     [HttpPost]
-    [ProducesResponseType(typeof(ResponseRegisteredRecipeJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResponseRegisteredProductJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
 
     [AuthenticatedUser]
     public async Task<IActionResult> Register(
         [FromServices] IRegisterProductsUseCase useCase,
-        [FromBody] RequestRecipeJson request)
+        [FromBody] RequestProductsJson request)
     {
         var response = await useCase.Execute(request);
         

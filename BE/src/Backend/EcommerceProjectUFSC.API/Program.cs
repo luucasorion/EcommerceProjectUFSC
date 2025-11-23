@@ -8,7 +8,7 @@ using EcommerceProjectUFSC.API.Token;
 using EcommerceProjectUFSC.Application;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
 using EcommerceProjectUFSC.Infrastructure;
-using EcommerceProjectUFSC.Infrastructure.DataAcess;
+using EcommerceProjectUFSC.Infrastructure.DataAccess;
 using EcommerceProjectUFSC.Infrastructure.Extensions;
 using EcommerceProjectUFSC.Infrastructure.Migrations;
 

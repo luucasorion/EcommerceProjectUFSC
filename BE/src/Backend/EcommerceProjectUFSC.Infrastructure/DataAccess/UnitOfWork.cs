@@ -1,6 +1,6 @@
 using EcommerceProjectUFSC.Domain.Repositories;
 
-namespace EcommerceProjectUFSC.Infrastructure.DataAcess;
+namespace EcommerceProjectUFSC.Infrastructure.DataAccess;
 
 public class UnitOfWork : IUnitOfWork
 {
