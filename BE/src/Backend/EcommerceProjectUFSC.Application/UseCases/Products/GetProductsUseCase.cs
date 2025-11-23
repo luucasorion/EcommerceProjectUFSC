@@ -26,6 +26,7 @@ public class GetProductsUseCase : IGetProductsUseCase
             TotalItems = totalCount,
             Items = products.Select(p => new ResponseProductJson
             {
+                Id = p.Id,
                 Title = p.Title,
                 Description = p.Description,
                 Price = p.Price
