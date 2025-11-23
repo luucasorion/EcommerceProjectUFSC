@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {getProducts, registerProduct} from "../api/productService.js";
+import { getProducts, registerProduct } from "../api/productService.js";
 
-export default function Products() {
+export function Products() {
     const [products, setProducts] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -21,6 +21,13 @@ export default function Products() {
     const [newImage, setNewImage] = useState("");
 
     const totalPages = Math.ceil(totalItems / pageSize);
+
+    const glassStyle = {
+        backgroundColor: "rgba(255, 255, 255, 0.75)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        border: "1px solid rgba(255, 255, 255, 0.4)"
+    };
 
     const loadProducts = async () => {
         try {
@@ -44,7 +51,7 @@ export default function Products() {
     useEffect(() => {
         setIsLoggedIn(!!token);
         loadProducts();
-    }, [page]);
+    }, [page, token, loadProducts]);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -86,7 +93,7 @@ export default function Products() {
 
     return (
         <>
-            <ToastContainer position="top-right" autoClose={3000} />
+            <ToastContainer position="top-right" autoClose={3000}/>
 
             <header>
                 <nav className="navbar bg-body-tertiary fixed-top">
@@ -97,7 +104,7 @@ export default function Products() {
 
                         <div className="d-flex align-items-center gap-3">
                             <button
-                                className="btn btn-outline-primary"
+                                className="btn btn-outline-primary btn-frutiger-aero"
                                 style={{
                                     width: 40,
                                     height: 40,
@@ -112,7 +119,7 @@ export default function Products() {
 
                             {isLoggedIn && (
                                 <button
-                                    className="btn btn-outline-danger"
+                                    className="btn btn-outline-danger btn-frutiger-aero"
                                     onClick={handleLogout}
                                 >
                                     Logout
@@ -144,25 +151,42 @@ export default function Products() {
                 </nav>
             </header>
 
-            <main className="container-fluid pt-5">
-                <div className="row mt-4">
+            <main
+                className="container-fluid pt-5 p-4"
+                style={{
+                    minHeight: "100vh",
+                    backgroundImage: "url('/butterfly-background.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundAttachment: "fixed",
+                    overflowX: "hidden"
+                }}
+            >
+                {/* Removi o px-4 da row, pois o container-fluid já tem padding ou o p-4 acima cuida disso */}
+                <div className="row mt-4 pt-4 g-4">
                     {products.map((p) => (
-                        <div key={p.id} className="col-sm-6 col-md-4 col-lg-3 mb-4">
-                            <div className="card h-100 shadow-sm">
+                        <div key={p.id} className="col-sm-6 col-md-4 col-lg-3">
+                            <div className="card h-100 shadow-sm" style={glassStyle}>
                                 <img
                                     src={p.image || "https://placehold.co/600x400"}
                                     className="card-img-top"
                                     alt={p.title}
+                                    style={{
+                                        maxHeight: "200px",
+                                        objectFit: "cover",
+                                        borderBottom: "1px solid rgba(0,0,0,0.1)"
+                                    }}
                                 />
 
                                 <div className="card-body d-flex flex-column">
-                                    <h5 className="card-title">{p.title}</h5>
-                                    <p className="card-text">{p.description}</p>
-                                    <h6 className="fw-bold mt-auto">R$ {p.price}</h6>
+                                    <h5 className="card-title fw-bold">{p.title}</h5>
+                                    <p className="card-text text-secondary">{p.description}</p>
+                                    <h6 className="fw-bold mt-auto fs-5 text-success">R$ {p.price}</h6>
                                 </div>
 
-                                <div className="card-footer text-center">
-                                    <button className="btn btn-primary w-100">
+                                <div className="card-footer text-center bg-transparent border-top-0 pb-3">
+                                    <button className="btn btn-primary w-100 shadow-sm">
                                         Comprar
                                     </button>
                                 </div>
@@ -170,42 +194,51 @@ export default function Products() {
                         </div>
                     ))}
                 </div>
-            </main>
 
-            <footer className="container pb-4 d-flex justify-content-center">
-                <ul className="pagination">
-                    {[...Array(totalPages)].map((_, i) => (
-                        <li
-                            key={i}
-                            className={`page-item ${page === i + 1 ? "active" : ""}`}
-                            style={{ cursor: "pointer" }}
-                        >
-                            <span
-                                className="page-link"
-                                onClick={() => setPage(i + 1)}
+                <footer className="container pb-4 d-flex justify-content-center mt-3">
+                    <ul className="pagination shadow-sm">
+                        {[...Array(totalPages)].map((_, i) => (
+                            <li
+                                key={i}
+                                className={`page-item ${page === i + 1 ? "active" : ""}`}
+                                style={{cursor: "pointer"}}
                             >
-                                {i + 1}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-            </footer>
+                                <span
+                                    className="page-link"
+                                    onClick={() => setPage(i + 1)}
+                                    style={page !== i + 1 ? {backgroundColor: "rgba(255,255,255,0.8)"} : {}}
+                                >
+                                    {i + 1}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </footer>
+            </main>
 
             {showModal && (
                 <div
                     className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
                     style={{
                         backdropFilter: "blur(5px)",
-                        backgroundColor: "rgba(0,0,0,0.2)",
+                        backgroundColor: "rgba(0,0,0,0.4)",
                         zIndex: 9999
                     }}
                 >
-                    <div className="card shadow-lg p-3" style={{ width: 400, borderRadius: 15 }}>
-                        <h5 className="mb-3">Novo Produto</h5>
+                    <div
+                        className="card shadow-lg p-4"
+                        style={{
+                            width: 400,
+                            borderRadius: 15,
+                            ...glassStyle,
+                            backgroundColor: "rgba(255, 255, 255, 0.9)"
+                        }}
+                    >
+                        <h5 className="mb-4 fw-bold text-center">Novo Produto</h5>
 
                         <input
                             type="text"
-                            className="form-control mb-2"
+                            className="form-control mb-3"
                             placeholder="Titulo"
                             value={title}
                             onChange={e => setTitle(e.target.value)}
@@ -213,7 +246,7 @@ export default function Products() {
 
                         <input
                             type="number"
-                            className="form-control mb-2"
+                            className="form-control mb-3"
                             placeholder="Preço"
                             value={newPrice}
                             onChange={e => setNewPrice(e.target.value)}
@@ -221,7 +254,7 @@ export default function Products() {
 
                         <input
                             type="text"
-                            className="form-control mb-2"
+                            className="form-control mb-3"
                             placeholder="Descrição"
                             value={newDescription}
                             onChange={e => setNewDescription(e.target.value)}
@@ -229,18 +262,18 @@ export default function Products() {
 
                         <input
                             type="text"
-                            className="form-control mb-3"
+                            className="form-control mb-4"
                             placeholder="Imagem (URL opcional)"
                             value={newImage}
                             onChange={e => setNewImage(e.target.value)}
                         />
 
                         <div className="d-flex justify-content-end gap-2">
-                            <button className="btn btn-secondary" onClick={() => setShowModal(false)}>
+                            <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowModal(false)}>
                                 Cancelar
                             </button>
 
-                            <button className="btn btn-success" onClick={handleAddProduct}>
+                            <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleAddProduct}>
                                 Concluir
                             </button>
                         </div>
