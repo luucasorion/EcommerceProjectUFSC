@@ -10,12 +10,12 @@ namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
 public class RegisterProductsUseCase : IRegisterProductsUseCase
 {
-    private readonly IRecipeWriteOnlyRepository _repository;
+    private readonly IProductsWriteOnlyRepository _repository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     
     
-    public RegisterProductsUseCase(IRecipeWriteOnlyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+    public RegisterProductsUseCase(IProductsWriteOnlyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
     {
         _repository = repository;
         _unitOfWork = unitOfWork;
@@ -26,7 +26,7 @@ public class RegisterProductsUseCase : IRegisterProductsUseCase
     {
         Validate(request);
         
-        var recipe = _mapper.Map<Domain.Entities.Products>(request);
+        var recipe = _mapper.Map<Domain.Entities.Product>(request);
 
         await _repository.Add(recipe);
         var mapperReturn = _mapper.Map<ResponseRegisteredRecipeJson>(recipe);

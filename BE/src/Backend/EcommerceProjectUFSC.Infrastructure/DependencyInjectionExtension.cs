@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EcommerceProjectUFSC.Domain.Repositories;
+using EcommerceProjectUFSC.Domain.Repositories.Product;
 using EcommerceProjectUFSC.Domain.Repositories.Recipe;
 using EcommerceProjectUFSC.Domain.Repositories.User;
 using EcommerceProjectUFSC.Domain.Security.Tokens;
@@ -51,7 +52,8 @@ public static class DependencyInjectionExtension
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
         services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
-        services.AddScoped<IRecipeWriteOnlyRepository, RecipeRepository>();
+        services.AddScoped<IProductsWriteOnlyRepository, ProductsRepository>();
+        services.AddScoped<IProductReadOnlyRepository, ProductsRepository>();
     }
 
     private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)

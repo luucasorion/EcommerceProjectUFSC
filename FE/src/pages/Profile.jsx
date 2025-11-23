@@ -14,14 +14,14 @@ export default function ProfilePage() {
         }
 
         getUser(token).then(data => {
-            setName(data.title || "");
+            setName(data.name || "");
             setEmail(data.email || "");
         });
     }, [token]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        updateUser(token, { title: name, email: email }).then(() => {
+        updateUser(token, { name: name, email: email }).then(() => {
             window.location.href = "/";
         });
     }

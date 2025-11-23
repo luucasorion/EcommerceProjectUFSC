@@ -11,7 +11,7 @@ public class EcommerceProjectUFSCDbContext : DbContext
     
     public DbSet<User> Users { get; set; }
     
-    public DbSet<Products> Recipes { get; set; }
+    public DbSet<Product> Recipes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

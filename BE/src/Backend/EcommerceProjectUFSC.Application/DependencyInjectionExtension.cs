@@ -35,6 +35,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
         services.AddScoped<IRegisterProductsUseCase, RegisterProductsUseCase>();
+        services.AddScoped<IGetProductsUseCase, GetProductsUseCase>();
     }
 
     private static void AddDPassword(IServiceCollection services, IConfiguration configuration)
