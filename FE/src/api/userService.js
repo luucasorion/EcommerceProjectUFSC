@@ -10,25 +10,25 @@ export async function getUser(token) {
     return response.json();
 }
 
-export async function updateUser(token, data) {
+export async function updateUser(token, userData) {
     await fetch(API_URL + '/user', {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(userData)
     });
 }
 
 
-export async function loginUser(email, password) {
+export async function loginUser(userData) {
     const response = await fetch(
         API_URL + '/login',
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify(userData)
         }
     );
 
@@ -42,11 +42,11 @@ export async function loginUser(email, password) {
     return data;
 }
 
-export async function registerUser(name, email, password) {
+export async function registerUser(userData) {
     const response = await fetch(API_URL + '/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify(userData),
     });
 
     const data = await response.json().catch(() => ({}));
