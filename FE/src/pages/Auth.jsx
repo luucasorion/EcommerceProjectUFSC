@@ -13,7 +13,7 @@ export default function AuthPage() {
 
     const handleLogin = async () => {
         try {
-            const data = await loginUser(loginEmail, loginPassword);
+            const data = await loginUser({loginEmail, loginPassword});
             localStorage.setItem("token", data.tokens.accessToken);
             window.location.href = "/";
         } catch (err) {
@@ -24,7 +24,7 @@ export default function AuthPage() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const data = await registerUser(regName, regEmail, regPassword);
+                const data = await registerUser({regName, regEmail, regPassword});
             localStorage.setItem("token", data.tokens.accessToken);
             window.location.href = "/";
         } catch (err) {
