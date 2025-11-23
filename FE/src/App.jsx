@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./pages/Auth.jsx";
-import ProductsPage from "./pages/Products.jsx";
+import {Products as ProductsPage} from "./pages/Products.jsx";
 import ProfilePage from "./pages/Profile.jsx";
 
 function App() {

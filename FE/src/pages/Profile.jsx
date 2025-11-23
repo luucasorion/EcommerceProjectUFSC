@@ -39,7 +39,7 @@ export default function ProfilePage() {
                         EcommerceProjectUFSC
                     </a>
 
-                    <button className="btn btn-danger" onClick={logout}>
+                    <button className="btn btn-danger btn-frutiger-aero" onClick={logout}>
                         Logout
                     </button>
                 </div>
@@ -90,7 +90,7 @@ export default function ProfilePage() {
                         placeholder="Email"
                     />
 
-                    <button className="btn btn-primary" type="submit">
+                    <button className="btn btn-primary btn-frutiger-aero" type="submit">
                         Concluir
                     </button>
                 </form>

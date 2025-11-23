@@ -1,0 +1,70 @@
+:root {
+    --button-blue: #007bff;
+    --button-blue-dark: #0056b3;
+}
+
+.btn-frutiger-aero {
+    /* Cor Base (Azul Forte) */
+    background: var(--button-blue);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Formato de Pílula */
+    border-radius: 9999px; /* Arredondamento máximo */
+    padding: 10px 20px; /* Mantém o padding do Bootstrap */
+
+    /* Efeito Gelatinoso/Vidro (Aero) */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borda brilhante */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    /* Brilho Superior (Gelatina) */
+    background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.4), /* Brilho de reflexo */
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 0.2) /* Sombra inferior */
+    );
+
+    /* Box Shadow para Brilho e 3D */
+    box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.2), /* Sombra padrão */
+            0 0 15px rgba(255, 255, 255, 0.8) inset, /* Brilho interno forte */
+            0 0 10px rgba(135, 206, 250, 0.6); /* Brilho externo azul claro */
+
+    /* Garante que o texto seja legível */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Pseudo-elemento para Brilho do Topo (Mais Frutiger Aero) */
+.btn-frutiger-aero::after {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 96%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7));
+    /* Usa o mesmo border-radius para ser uma pílula */
+    border-radius: 9999px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.btn-frutiger-aero:hover {
+    background: var(--button-blue-dark);
+    box-shadow:
+            0 6px 10px rgba(0, 0, 0, 0.3),
+            0 0 25px rgba(255, 255, 255, 0.9) inset,
+            0 0 15px rgba(135, 206, 250, 0.8);
+    transform: translateY(-1px);
+}
+
+.btn-frutiger-aero:active {
+    box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.4) inset;
+    transform: scale(0.99);
+}

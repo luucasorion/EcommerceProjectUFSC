@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function AuthPage() {
+    // ... (todos os states e handlers permanecem iguais)
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
 
@@ -47,6 +48,7 @@ export default function AuthPage() {
             <ToastContainer position="top-right" autoClose={3000} />
 
             <header>
+                {/* Navbar permanece igual */}
                 <nav className="navbar bg-body-tertiary fixed-top">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="/">
@@ -80,21 +82,44 @@ export default function AuthPage() {
                 </nav>
             </header>
 
-            <main className="container-fluid pt-5 vh-100">
+            {/* MAIN: A imagem de fundo é aplicada aqui para cobrir tudo */}
+            <main
+                className="container-fluid pt-5 vh-100"
+                style={{
+                    backgroundImage: "url('/frutiger-background.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
+                }}
+            >
+                {/* Voltamos com a estrutura de ROW para dividir a tela */}
                 <div className="row h-100">
-
-                    <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-start ps-5 bg-light">
+                    {/* Coluna da Esquerda: Fica vazia apenas para ocupar espaço */}
+                    <div className="col-md-6 d-none d-md-block">
+                        {/* Vazio */}
                     </div>
 
-                    <div className="col-md-6 d-flex justify-content-center align-items-center bg-white p-4">
-                        <form className="w-100 w-md-75 shadow p-4 rounded" onSubmit={handleRegister}>
+                    {/* Coluna da Direita: Contém o formulário */}
+                    {/* Importante: Removemos o 'bg-white' que existia aqui no original */}
+                    <div className="col-md-6 d-flex justify-content-center align-items-center p-4">
+                        <form
+                            className="w-100 w-md-75 shadow p-4 rounded-4"
+                            onSubmit={handleRegister}
+                            style={{
+                                // Efeito de vidro aplicado no formulário
+                                backgroundColor: "rgba(255, 255, 255, 0.75)", // Um pouco mais opaco para leitura
+                                backdropFilter: "blur(15px)", // Aumentei um pouco o desfoque
+                                WebkitBackdropFilter: "blur(15px)",
+                                border: "1px solid rgba(255, 255, 255, 0.4)"
+                            }}
+                        >
                             <h2 className="mb-4 text-center">Registrar</h2>
 
                             <div className="mb-3">
-                                <label htmlFor="name" className="form-label">Nome</label>
+                                <label htmlFor="name" className="form-label fw-semibold">Nome</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control bg-white bg-opacity-50" // Deixa o input levemente transparente também
                                     id="name"
                                     placeholder="Digite seu nome"
                                     value={regName}
@@ -103,10 +128,10 @@ export default function AuthPage() {
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="regEmail" className="form-label">Email</label>
+                                <label htmlFor="regEmail" className="form-label fw-semibold">Email</label>
                                 <input
                                     type="email"
-                                    className="form-control"
+                                    className="form-control bg-white bg-opacity-50"
                                     id="regEmail"
                                     placeholder="Digite seu email"
                                     value={regEmail}
@@ -115,10 +140,10 @@ export default function AuthPage() {
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="regPassword" className="form-label">Senha</label>
+                                <label htmlFor="regPassword" className="form-label fw-semibold">Senha</label>
                                 <input
                                     type="password"
-                                    className="form-control"
+                                    className="form-control bg-white bg-opacity-50"
                                     id="regPassword"
                                     placeholder="Crie uma senha"
                                     value={regPassword}
@@ -126,7 +151,7 @@ export default function AuthPage() {
                                 />
                             </div>
 
-                            <button type="submit" className="btn btn-primary w-100">
+                            <button type="submit" className="btn btn-primary w-100 btn-frutiger-aero">
                                 Registrar
                             </button>
                         </form>
