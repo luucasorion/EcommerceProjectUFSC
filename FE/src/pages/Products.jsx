@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,18 +8,14 @@ export function Products() {
     const [products, setProducts] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
-
     const token = localStorage.getItem("token");
-
     const [page, setPage] = useState(1);
     const pageSize = 8;
     const [totalItems, setTotalItems] = useState(0);
-
     const [title, setTitle] = useState("");
     const [newPrice, setNewPrice] = useState("");
     const [newDescription, setNewDescription] = useState("");
     const [newImage, setNewImage] = useState("");
-
     const totalPages = Math.ceil(totalItems / pageSize);
 
     const glassStyle = {
@@ -29,29 +25,26 @@ export function Products() {
         border: "1px solid rgba(255, 255, 255, 0.4)"
     };
 
-    const loadProducts = async () => {
+    const loadProducts = useCallback(async () => {
         try {
             const response = await getProducts(page, pageSize);
-
             if (!response.ok) {
                 toast.error("Erro ao carregar produtos.");
                 return;
             }
-
             const data = await response.json();
-
             setProducts(data.items);
             setTotalItems(data.totalItems);
         } catch (err) {
             console.error(err);
             toast.error("Erro ao conectar com o servidor.");
         }
-    };
+    }, [page, pageSize]);
 
     useEffect(() => {
         setIsLoggedIn(!!token);
         loadProducts();
-    }, [page, token, loadProducts]);
+    }, [token, loadProducts]);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -61,21 +54,18 @@ export function Products() {
 
     const handleAddProduct = async () => {
         if (!title || !newPrice) return;
-
         try {
             await registerProduct(token, {
                 title,
                 description: newDescription,
                 price: newPrice,
             });
-
             toast.success("Produto adicionado!");
             setShowModal(false);
             loadProducts();
         } catch (err) {
             toast.error(err.message);
         }
-
         setTitle("");
         setNewPrice("");
         setNewDescription("");
@@ -94,29 +84,18 @@ export function Products() {
     return (
         <>
             <ToastContainer position="top-right" autoClose={3000}/>
-
             <header>
                 <nav className="navbar bg-body-tertiary fixed-top">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="/">
-                            EcommerceProjectUFSC
-                        </a>
-
+                        <a className="navbar-brand" href="/">EcommerceProjectUFSC</a>
                         <div className="d-flex align-items-center gap-3">
                             <button
                                 className="btn btn-outline-primary btn-frutiger-aero"
-                                style={{
-                                    width: 40,
-                                    height: 40,
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center"
-                                }}
+                                style={{width: 40, height: 40, display: "flex", justifyContent: "center", alignItems: "center"}}
                                 onClick={handlePlusClick}
                             >
                                 +
                             </button>
-
                             {isLoggedIn && (
                                 <button
                                     className="btn btn-outline-danger btn-frutiger-aero"
@@ -125,32 +104,20 @@ export function Products() {
                                     Logout
                                 </button>
                             )}
-
                             <a
                                 href={isLoggedIn ? "/profile" : "/auth"}
-                                style={{
-                                    width: 40,
-                                    height: 40,
-                                    borderRadius: "50%",
-                                    overflow: "hidden",
-                                    display: "block"
-                                }}
+                                style={{width: 40, height: 40, borderRadius: "50%", overflow: "hidden", display: "block"}}
                             >
                                 <img
                                     src="/pfp.jpg"
                                     alt="User"
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover"
-                                    }}
+                                    style={{width: "100%", height: "100%", objectFit: "cover"}}
                                 />
                             </a>
                         </div>
                     </div>
                 </nav>
             </header>
-
             <main
                 className="container-fluid pt-5 p-4"
                 style={{
@@ -163,7 +130,6 @@ export function Products() {
                     overflowX: "hidden"
                 }}
             >
-                {/* Removi o px-4 da row, pois o container-fluid já tem padding ou o p-4 acima cuida disso */}
                 <div className="row mt-4 pt-4 g-4">
                     {products.map((p) => (
                         <div key={p.id} className="col-sm-6 col-md-4 col-lg-3">
@@ -172,29 +138,20 @@ export function Products() {
                                     src={p.image || "https://placehold.co/600x400"}
                                     className="card-img-top"
                                     alt={p.title}
-                                    style={{
-                                        maxHeight: "200px",
-                                        objectFit: "cover",
-                                        borderBottom: "1px solid rgba(0,0,0,0.1)"
-                                    }}
+                                    style={{maxHeight: "200px", objectFit: "cover", borderBottom: "1px solid rgba(0,0,0,0.1)"}}
                                 />
-
                                 <div className="card-body d-flex flex-column">
                                     <h5 className="card-title fw-bold">{p.title}</h5>
                                     <p className="card-text text-secondary">{p.description}</p>
                                     <h6 className="fw-bold mt-auto fs-5 text-success">R$ {p.price}</h6>
                                 </div>
-
                                 <div className="card-footer text-center bg-transparent border-top-0 pb-3">
-                                    <button className="btn btn-primary w-100 shadow-sm">
-                                        Comprar
-                                    </button>
+                                    <button className="btn btn-primary w-100 shadow-sm">Comprar</button>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-
                 <footer className="container pb-4 d-flex justify-content-center mt-3">
                     <ul className="pagination shadow-sm">
                         {[...Array(totalPages)].map((_, i) => (
@@ -215,67 +172,23 @@ export function Products() {
                     </ul>
                 </footer>
             </main>
-
             {showModal && (
                 <div
                     className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-                    style={{
-                        backdropFilter: "blur(5px)",
-                        backgroundColor: "rgba(0,0,0,0.4)",
-                        zIndex: 9999
-                    }}
+                    style={{backdropFilter: "blur(5px)", backgroundColor: "rgba(0,0,0,0.4)", zIndex: 9999}}
                 >
                     <div
                         className="card shadow-lg p-4"
-                        style={{
-                            width: 400,
-                            borderRadius: 15,
-                            ...glassStyle,
-                            backgroundColor: "rgba(255, 255, 255, 0.9)"
-                        }}
+                        style={{width: 400, borderRadius: 15, ...glassStyle, backgroundColor: "rgba(255, 255, 255, 0.9)"}}
                     >
                         <h5 className="mb-4 fw-bold text-center">Novo Produto</h5>
-
-                        <input
-                            type="text"
-                            className="form-control mb-3"
-                            placeholder="Titulo"
-                            value={title}
-                            onChange={e => setTitle(e.target.value)}
-                        />
-
-                        <input
-                            type="number"
-                            className="form-control mb-3"
-                            placeholder="Preço"
-                            value={newPrice}
-                            onChange={e => setNewPrice(e.target.value)}
-                        />
-
-                        <input
-                            type="text"
-                            className="form-control mb-3"
-                            placeholder="Descrição"
-                            value={newDescription}
-                            onChange={e => setNewDescription(e.target.value)}
-                        />
-
-                        <input
-                            type="text"
-                            className="form-control mb-4"
-                            placeholder="Imagem (URL opcional)"
-                            value={newImage}
-                            onChange={e => setNewImage(e.target.value)}
-                        />
-
+                        <input type="text" className="form-control mb-3" placeholder="Titulo" value={title} onChange={e => setTitle(e.target.value)} />
+                        <input type="number" className="form-control mb-3" placeholder="Preço" value={newPrice} onChange={e => setNewPrice(e.target.value)} />
+                        <input type="text" className="form-control mb-3" placeholder="Descrição" value={newDescription} onChange={e => setNewDescription(e.target.value)} />
+                        <input type="text" className="form-control mb-4" placeholder="Imagem (URL opcional)" value={newImage} onChange={e => setNewImage(e.target.value)} />
                         <div className="d-flex justify-content-end gap-2">
-                            <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowModal(false)}>
-                                Cancelar
-                            </button>
-
-                            <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleAddProduct}>
-                                Concluir
-                            </button>
+                            <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowModal(false)}>Cancelar</button>
+                            <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleAddProduct}>Concluir</button>
                         </div>
                     </div>
                 </div>
