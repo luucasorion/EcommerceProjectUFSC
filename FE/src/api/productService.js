@@ -26,7 +26,7 @@ export async function getProducts(page, pageSize) {
 }
 
 export async function getProductByID(id) {
-    const response = await fetch(API_URL + `/id?id=${id}`, {
+    const response = await fetch(API_URL + `/products/${id}`, {
         method: "GET",
         headers: {}
     });
@@ -45,7 +45,7 @@ export async function updateProduct(token, productData) {
 }
 
 export async function deleteProduct(token, id) {
-    await fetch(API_URL + `/products?id=${id}`, {
+    await fetch(API_URL + `/products/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
