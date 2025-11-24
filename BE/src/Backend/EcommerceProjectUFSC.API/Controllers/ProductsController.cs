@@ -37,13 +37,13 @@ public class ProductsController : EcommerceProjectUfscBaseController
         return Ok(response);
     }
     
-    [HttpGet("/id")]
+    [HttpGet("{id}")]
     [ProducesResponseType(typeof(ResponseProductJson), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetProduct(
         [FromServices] IGetProductUseCase useCase,
-        [FromQuery] RequestProductJson request)
+        [FromRoute] long id)
     {
-        var result = await useCase.Execute(request);
+        var result = await useCase.Execute(id);
         
         return Ok(result);
     }    
@@ -61,15 +61,15 @@ public class ProductsController : EcommerceProjectUfscBaseController
         return NoContent();
     }
     
-    [HttpDelete]
+    [HttpDelete("{id}")]
     [ProducesResponseType( StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     [AuthenticatedUser]
     public async Task<IActionResult> DeleteProduct(
         [FromServices] IDeleteProductUseCase useCase,
-        [FromQuery] RequestProductJson request)
+        [FromRoute] long id)
     {
-        await useCase.Execute(request);
+        await useCase.Execute(id);
         
         return NoContent();
     }    

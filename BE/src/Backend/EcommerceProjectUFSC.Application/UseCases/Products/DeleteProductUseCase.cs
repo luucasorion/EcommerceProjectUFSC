@@ -24,10 +24,8 @@ public class DeleteProductUseCase : IDeleteProductUseCase
         _updateOnlyRepository = updateOnlyRepository;
         _unitOfWork = unitOfWork;
     }
-    public async Task Execute(RequestProductJson request)
+    public async Task Execute(long id)
     {
-        var id = request.Id;
-
         var result = await _repository.GetById(id);
         result.Active = false;
         

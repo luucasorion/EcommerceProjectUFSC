@@ -19,10 +19,8 @@ public class GetProductUseCase : IGetProductUseCase
         _mapper = mapper;
         _repository = repository;
     }
-    public async Task<ResponseProductJson> Execute(RequestProductJson request)
+    public async Task<ResponseProductJson> Execute(long id)
     {
-        var id = request.Id;
-
         var result = await _repository.GetById(id);
 
         if (result is null)
