@@ -5,5 +5,5 @@ namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
 public interface IDeleteProductUseCase
 {
-    public Task Execute(RequestProductJson request);
+    public Task Execute(long id);
 } 
