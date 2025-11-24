@@ -4,7 +4,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function AuthPage() {
-    // ... (todos os states e handlers permanecem iguais)
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
 
@@ -48,7 +47,6 @@ export default function AuthPage() {
             <ToastContainer position="top-right" autoClose={3000} />
 
             <header>
-                {/* Navbar permanece igual */}
                 <nav className="navbar bg-body-tertiary fixed-top">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="/">
@@ -71,7 +69,7 @@ export default function AuthPage() {
                                 onChange={(e) => setLoginPassword(e.target.value)}
                             />
                             <button
-                                className="btn btn-outline-success"
+                                className="btn btn-outline-success btn-frutiger-aero"
                                 type="button"
                                 onClick={handleLogin}
                             >
@@ -82,7 +80,6 @@ export default function AuthPage() {
                 </nav>
             </header>
 
-            {/* MAIN: A imagem de fundo é aplicada aqui para cobrir tudo */}
             <main
                 className="container-fluid pt-5 vh-100"
                 style={{
@@ -92,23 +89,17 @@ export default function AuthPage() {
                     backgroundRepeat: "no-repeat"
                 }}
             >
-                {/* Voltamos com a estrutura de ROW para dividir a tela */}
                 <div className="row h-100">
-                    {/* Coluna da Esquerda: Fica vazia apenas para ocupar espaço */}
                     <div className="col-md-6 d-none d-md-block">
-                        {/* Vazio */}
                     </div>
-
-                    {/* Coluna da Direita: Contém o formulário */}
-                    {/* Importante: Removemos o 'bg-white' que existia aqui no original */}
                     <div className="col-md-6 d-flex justify-content-center align-items-center p-4">
                         <form
                             className="w-100 w-md-75 shadow p-4 rounded-4"
                             onSubmit={handleRegister}
                             style={{
-                                // Efeito de vidro aplicado no formulário
-                                backgroundColor: "rgba(255, 255, 255, 0.75)", // Um pouco mais opaco para leitura
-                                backdropFilter: "blur(15px)", // Aumentei um pouco o desfoque
+
+                                backgroundColor: "rgba(255, 255, 255, 0.75)",
+                                backdropFilter: "blur(15px)",
                                 WebkitBackdropFilter: "blur(15px)",
                                 border: "1px solid rgba(255, 255, 255, 0.4)"
                             }}
@@ -119,7 +110,7 @@ export default function AuthPage() {
                                 <label htmlFor="name" className="form-label fw-semibold">Nome</label>
                                 <input
                                     type="text"
-                                    className="form-control bg-white bg-opacity-50" // Deixa o input levemente transparente também
+                                    className="form-control bg-white bg-opacity-50"
                                     id="name"
                                     placeholder="Digite seu nome"
                                     value={regName}
