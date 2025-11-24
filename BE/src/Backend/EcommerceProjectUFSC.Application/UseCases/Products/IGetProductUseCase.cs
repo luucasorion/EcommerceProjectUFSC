@@ -3,7 +3,7 @@ using EcommerceProjectUFSC.Communication.Responses;
 
 namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
-public interface IRegisterProductsUseCase
+public interface IGetProductUseCase
 {
-    public Task<ResponseRegisteredProductJson> Execute(RequestProductsJson request);
-} 
+    public Task<ResponseProductJson> Execute(RequestProductJson request);
+}

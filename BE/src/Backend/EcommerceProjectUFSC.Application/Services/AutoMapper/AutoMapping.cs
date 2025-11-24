@@ -18,12 +18,13 @@ public class AutoMapping : Profile
         CreateMap<RequestRegisterUserJson, User>()
             .ForMember(dest => dest.Password, opt => opt.Ignore());
 
-        CreateMap<RequestProductsJson, Product>();
+        CreateMap<RequestRegisterProductJson, Product>();
     }
 
     private void DomainToResponse()
     {
         CreateMap<User, ResponseUserProfileJson>();
+        CreateMap<Product, ResponseProductJson>();
         CreateMap<Product, ResponseRegisteredProductJson>();
     }
 }

@@ -1,5 +1,6 @@
 using EcommerceProjectUFSC.API.Attributes;
 using EcommerceProjectUFSC.Application.UseCases.Products;
+using EcommerceProjectUFSC.Application.UseCases.Products.Update;
 using Microsoft.AspNetCore.Mvc;
 using EcommerceProjectUFSC.Communication.Requests;
 using EcommerceProjectUFSC.Communication.Responses;
@@ -17,7 +18,7 @@ public class ProductsController : EcommerceProjectUfscBaseController
     [AuthenticatedUser]
     public async Task<IActionResult> Register(
         [FromServices] IRegisterProductsUseCase useCase,
-        [FromBody] RequestProductsJson request)
+        [FromBody] RequestRegisterProductJson request)
     {
         var response = await useCase.Execute(request);
         
@@ -35,5 +36,41 @@ public class ProductsController : EcommerceProjectUfscBaseController
         
         return Ok(response);
     }
+    
+    [HttpGet("/id")]
+    [ProducesResponseType(typeof(ResponseProductJson), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetProduct(
+        [FromServices] IGetProductUseCase useCase,
+        [FromQuery] RequestProductJson request)
+    {
+        var result = await useCase.Execute(request);
+        
+        return Ok(result);
+    }    
+    
+    [HttpPut]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    [AuthenticatedUser]
+    public async Task<IActionResult> Update(
+        [FromServices] IUpdateProductUseCase useCase,
+        [FromBody] RequestUpdateProductJson request)
+    {
+        await useCase.Execute(request);
 
+        return NoContent();
+    }
+    
+    [HttpDelete]
+    [ProducesResponseType( StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    [AuthenticatedUser]
+    public async Task<IActionResult> DeleteProduct(
+        [FromServices] IDeleteProductUseCase useCase,
+        [FromQuery] RequestProductJson request)
+    {
+        await useCase.Execute(request);
+        
+        return NoContent();
+    }    
 }

@@ -44,4 +44,7 @@
     <data name="TITLE_EMPTY" xml:space="preserve">
         <value>O titulo não pode ser vazio</value>
     </data>
+    <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
+        <value>O produto não pode ser encontrado</value>
+    </data>
 </root>

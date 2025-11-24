@@ -1,6 +1,6 @@
 namespace EcommerceProjectUFSC.Domain.Repositories.Product;
 
-public interface IProductsWriteOnlyRepository
+public interface IProductWriteOnlyRepository
 {
     public Task Add(Entities.Product product);
 }

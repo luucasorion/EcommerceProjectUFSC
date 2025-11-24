@@ -6,4 +6,6 @@ public interface IProductReadOnlyRepository
         int page,
         int pageSize
     );
+
+    Task<Entities.Product> GetById(long id);
 }
