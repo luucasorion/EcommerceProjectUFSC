@@ -9,19 +9,19 @@ namespace EcommerceProjectUFSC.Application.UseCases.Products;
 
 public class RegisterProductsUseCase : IRegisterProductsUseCase
 {
-    private readonly IProductsWriteOnlyRepository _repository;
+    private readonly IProductWriteOnlyRepository _repository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     
     
-    public RegisterProductsUseCase(IProductsWriteOnlyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+    public RegisterProductsUseCase(IProductWriteOnlyRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
     {
         _repository = repository;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
     
-    public async Task<ResponseRegisteredProductJson> Execute(RequestProductsJson request)
+    public async Task<ResponseRegisteredProductJson> Execute(RequestRegisterProductJson request)
     {
         Validate(request);
         
@@ -35,7 +35,7 @@ public class RegisterProductsUseCase : IRegisterProductsUseCase
         return mapperReturn;
     }
 
-    private static void Validate(RequestProductsJson request)
+    private static void Validate(RequestRegisterProductJson request)
     {
         var result = new ProductsValidator().Validate(request);
 

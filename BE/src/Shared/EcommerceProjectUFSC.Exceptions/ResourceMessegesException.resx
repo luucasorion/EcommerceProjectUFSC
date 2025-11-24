@@ -51,4 +51,7 @@
     <data name="PRICE_INVALID" xml:space="preserve">
         <value>The price must be valid</value>
     </data>
+    <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
+        <value>The product was not founded</value>
+    </data>
 </root>

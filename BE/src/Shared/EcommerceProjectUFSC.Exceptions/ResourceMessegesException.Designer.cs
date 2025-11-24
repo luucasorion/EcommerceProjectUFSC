@@ -114,6 +114,15 @@ namespace EcommerceProjectUFSC.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The product was not founded.
+        /// </summary>
+        public static string PRODUCT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("PRODUCT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The title can&apos;t be empty.
         /// </summary>
         public static string TITLE_EMPTY {

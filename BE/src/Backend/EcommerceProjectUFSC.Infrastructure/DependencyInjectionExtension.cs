@@ -50,8 +50,9 @@ public static class DependencyInjectionExtension
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
         services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
-        services.AddScoped<IProductsWriteOnlyRepository, ProductsRepository>();
-        services.AddScoped<IProductReadOnlyRepository, ProductsRepository>();
+        services.AddScoped<IProductWriteOnlyRepository, ProductRepository>();
+        services.AddScoped<IProductReadOnlyRepository, ProductRepository>();
+        services.AddScoped<IProductUpdateOnlyRepository, ProductRepository>();
     }
 
     private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)

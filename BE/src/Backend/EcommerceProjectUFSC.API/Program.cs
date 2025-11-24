@@ -86,7 +86,7 @@ app.MapControllers();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage(); 
+    app.UseDeveloperExceptionPage();
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();

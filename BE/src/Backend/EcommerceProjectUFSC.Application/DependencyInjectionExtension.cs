@@ -3,6 +3,7 @@ using EcommerceProjectUFSC.Application.Services.AutoMapper;
 using EcommerceProjectUFSC.Application.Services.Cryptography;
 using EcommerceProjectUFSC.Application.UseCases.Login.DoLogin;
 using EcommerceProjectUFSC.Application.UseCases.Products;
+using EcommerceProjectUFSC.Application.UseCases.Products.Update;
 using EcommerceProjectUFSC.Application.UseCases.User.Profile;
 using EcommerceProjectUFSC.Application.UseCases.User.Register;
 using EcommerceProjectUFSC.Application.UseCases.User.Update;
@@ -33,8 +34,11 @@ public static class DependencyInjectionExtension
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+        services.AddScoped<IUpdateProductUseCase, UpdateProductUseCase>();
         services.AddScoped<IRegisterProductsUseCase, RegisterProductsUseCase>();
         services.AddScoped<IGetProductsUseCase, GetProductsUseCase>();
+        services.AddScoped<IGetProductUseCase, GetProductUseCase>();
+        services.AddScoped<IDeleteProductUseCase, DeleteProductUseCase>();
     }
 
     private static void AddDPassword(IServiceCollection services, IConfiguration configuration)
