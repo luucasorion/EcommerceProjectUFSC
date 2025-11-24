@@ -1,64 +1,91 @@
-########## JETBRAINS (RIDER / WEBSTORM) ##########
-.idea/
-*.iml
-
-########## .NET / C# ##########
-# Compiled binaries
+############################
+# .NET / C#
+############################
 bin/
 obj/
-out/
-[Bb]uild/
-[Bb]in/
-[Oo]bj/
-
-# User-specific files
-*.user
-*.userosscache
-*.sln.docstates
-
-# Visual Studio / Nuget / package cache
-.vs/
-*.pidb
-*.svclog
-*.scc
-packages/
-*.nupkg
-
-# Logs
+*.dll
+*.exe
+*.mdb
+*.pdb
+*.cache
 *.log
+*.user
+*.vs/
+.vscode/
+.nuget/
+packages/
+TestResults/
+*.db
+*.sqlite
+*.mdf
+*.ldf
+launchSettings.json
 
-########## NODE / REACT / VITE ##########
+# Excluir configs geradas
+appsettings.Development.json
+
+############################
+# Node / React / Vite
+############################
 node_modules/
 dist/
 build/
-
-# Vite cache
-vite.config.timestamp-*
-.vite/
-
-# Dependencies / lock / temporary
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+*.tgz
+*.zip
 
-########## ENV / CONFIG SENSIVEL ##########
+# Vite cache
+vite.config.ts.timestamp*
+.vite
+
+# Local environment variables
 .env
+.env.local
 .env.*.local
-*.secret
-*.key
 
-########## SISTEMA OPERACIONAL ##########
+############################
+# WebStorm / Rider / JetBrains
+############################
+.idea/
+*.iml
+.idea_modules/
+out/
+
+# JetBrains project files
+# Rider
+*.sln.iml
+
+# WebStorm
+# Coverage reports
+coverage/
+
+############################
+# OS files
+############################
 # Windows
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-$RECYCLE.BIN/
 
 # macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# Linux
-*~
+############################
+# Logs
+############################
+*.log
+logs/
+log/
+
+############################
+# Misc
+############################
+*.temp
+*.tmp
+~$*
+*.bak
