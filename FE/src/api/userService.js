@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5056";
+const API_URL = "https://ecommerceprojectufsc-cfh3hqf0brgthrd9.eastus2-01.azurewebsites.net";
 
 export async function getUser(token) {
     const response = await fetch(API_URL + '/user', {
