@@ -2,20 +2,25 @@ import { useEffect, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getProducts, registerProduct } from "../api/productService.js";
+import { getProductByID, getProducts, registerProduct, updateProduct, deleteProduct } from "../api/productService.js";
 
 export function Products() {
     const [products, setProducts] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    const [showRegisterModal, setShowRegisterModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
     const token = localStorage.getItem("token");
     const [page, setPage] = useState(1);
     const pageSize = 8;
     const [totalItems, setTotalItems] = useState(0);
+
     const [title, setTitle] = useState("");
-    const [newPrice, setNewPrice] = useState("");
-    const [newDescription, setNewDescription] = useState("");
-    const [newImage, setNewImage] = useState("");
+    const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
+    const [Image, setImage] = useState("");
+
+    const [editingId, setEditingId] = useState(null);
+
     const totalPages = Math.ceil(totalItems / pageSize);
 
     const glassStyle = {
@@ -52,24 +57,66 @@ export function Products() {
         toast.info("Logout realizado!");
     };
 
+    const clearForm = () => {
+        setTitle("");
+        setPrice("");
+        setDescription("");
+        setImage("");
+        setEditingId(null);
+    };
+
     const handleAddProduct = async () => {
-        if (!title || !newPrice) return;
+        if (!title || !price) return;
         try {
             await registerProduct(token, {
                 title,
-                description: newDescription,
-                price: newPrice,
+                description: description,
+                price: price,
+                image: Image
             });
-            toast.success("Produto adicionado!");
-            setShowModal(false);
+            toast.success("Produto salvo!");
+            setShowRegisterModal(false);
             loadProducts();
         } catch (err) {
             toast.error(err.message);
         }
-        setTitle("");
-        setNewPrice("");
-        setNewDescription("");
-        setNewImage("");
+        clearForm();
+    };
+
+    const handleUpdateProduct = async () => {
+        if (!editingId || !title || !price) return;
+
+        try {
+            await updateProduct(token, {
+                id: editingId,
+                title: title,
+                description: description,
+                price: price,
+            });
+
+            toast.success("Produto atualizado com sucesso!");
+            setShowEditModal(false);
+            loadProducts();
+            clearForm();
+        } catch (err) {
+            console.error(err);
+            toast.error("Erro ao atualizar produto.");
+        }
+    };
+
+    const handleDeleteProduct = async () => {
+        if (!editingId) return;
+
+        try {
+            await deleteProduct(token, editingId);
+            toast.success("Produto deletado com sucesso!");
+            setShowEditModal(false);
+            loadProducts();
+            clearForm();
+        } catch (err) {
+            console.error(err);
+            toast.error("Erro ao deletar produto.");
+        }
     };
 
     const handlePlusClick = () => {
@@ -78,7 +125,29 @@ export function Products() {
             window.location.href = "/auth";
             return;
         }
-        setShowModal(true);
+        clearForm();
+        setShowRegisterModal(true);
+    };
+
+    const handleEdit = async (id) => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            window.location.href = "/auth";
+            return;
+        }
+
+        try {
+            const data = await getProductByID(id);
+            setTitle(data.title || "");
+            setDescription(data.description || "");
+            setPrice(data.price || "");
+            setImage(data.image || "");
+            setEditingId(id);
+            setShowEditModal(true);
+        } catch (error) {
+            console.error(error);
+            toast.error("Erro ao carregar dados do produto.");
+        }
     };
 
     return (
@@ -146,7 +215,12 @@ export function Products() {
                                     <h6 className="fw-bold mt-auto fs-5 text-success">R$ {p.price}</h6>
                                 </div>
                                 <div className="card-footer text-center bg-transparent border-top-0 pb-3">
-                                    <button className="btn btn-primary w-100 shadow-sm">Comprar</button>
+                                    <button
+                                        className="btn btn-primary w-100 shadow-sm"
+                                        onClick={() => handleEdit(p.id)}
+                                    >
+                                        Editar
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +246,8 @@ export function Products() {
                     </ul>
                 </footer>
             </main>
-            {showModal && (
+
+            {showRegisterModal && (
                 <div
                     className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
                     style={{backdropFilter: "blur(5px)", backgroundColor: "rgba(0,0,0,0.4)", zIndex: 9999}}
@@ -183,12 +258,42 @@ export function Products() {
                     >
                         <h5 className="mb-4 fw-bold text-center">Novo Produto</h5>
                         <input type="text" className="form-control mb-3" placeholder="Titulo" value={title} onChange={e => setTitle(e.target.value)} />
-                        <input type="number" className="form-control mb-3" placeholder="Preço" value={newPrice} onChange={e => setNewPrice(e.target.value)} />
-                        <input type="text" className="form-control mb-3" placeholder="Descrição" value={newDescription} onChange={e => setNewDescription(e.target.value)} />
-                        <input type="text" className="form-control mb-4" placeholder="Imagem (URL opcional)" value={newImage} onChange={e => setNewImage(e.target.value)} />
+                        <input type="number" className="form-control mb-3" placeholder="Preço" value={price} onChange={e => setPrice(e.target.value)} />
+                        <input type="text" className="form-control mb-3" placeholder="Descrição" value={description} onChange={e => setDescription(e.target.value)} />
+                        <input type="text" className="form-control mb-4" placeholder="Imagem (URL opcional)" value={Image} onChange={e => setImage(e.target.value)} />
                         <div className="d-flex justify-content-end gap-2">
-                            <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowModal(false)}>Cancelar</button>
+                            <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowRegisterModal(false)}>Cancelar</button>
                             <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleAddProduct}>Concluir</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {showEditModal && (
+                <div
+                    className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
+                    style={{backdropFilter: "blur(5px)", backgroundColor: "rgba(0,0,0,0.4)", zIndex: 9999}}
+                >
+                    <div
+                        className="card shadow-lg p-4"
+                        style={{width: 400, borderRadius: 15, ...glassStyle, backgroundColor: "rgba(255, 255, 255, 0.9)"}}
+                    >
+                        <h5 className="mb-4 fw-bold text-center">Editar Produto</h5>
+                        <input type="text" className="form-control mb-3" placeholder="Titulo" value={title} onChange={e => setTitle(e.target.value)} />
+                        <input type="number" className="form-control mb-3" placeholder="Preço" value={price} onChange={e => setPrice(e.target.value)} />
+                        <input type="text" className="form-control mb-3" placeholder="Descrição" value={description} onChange={e => setDescription(e.target.value)} />
+                        <input type="text" className="form-control mb-4" placeholder="Imagem (URL opcional)" value={Image} onChange={e => setImage(e.target.value)} />
+                        <div className="d-flex justify-content-between align-items-center">
+                            <button
+                                className="btn btn-danger btn-frutiger-aero"
+                                onClick={handleDeleteProduct}
+                            >
+                                Deletar
+                            </button>
+                            <div className="d-flex gap-2">
+                                <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowEditModal(false)}>Cancelar</button>
+                                <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleUpdateProduct}>Concluir</button>
+                            </div>
                         </div>
                     </div>
                 </div>
