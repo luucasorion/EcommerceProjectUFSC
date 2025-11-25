@@ -4,6 +4,8 @@
 
 Aplicação Web de comércio eletrônico desenvolvida como parte da disciplina **INE5646 – Programação para Web** da Universidade Federal de Santa Catarina (UFSC).
 
+🔗 **Acesse a aplicação online:** [ecommerce-project-ufsc.vercel.app](https://ecommerce-project-ufsc.vercel.app/)
+
 ---
 
 ## 📖 Sobre o Projeto
@@ -107,8 +109,8 @@ Certifique-se de ter instalado em sua máquina:
 
 O projeto está online e disponível para avaliação:
 
-* **Frontend:** Hospedado na **Vercel** (CI/CD automatizado).
-* **Backend:** Hospedado na **Microsoft Azure** (App Service).
+* 🚀 **Frontend (Aplicação):** [https://ecommerce-project-ufsc.vercel.app/](https://ecommerce-project-ufsc.vercel.app/)
+* ☁️ **Backend:** Hospedado na **Microsoft Azure** (App Service).
 
 ---
 
