@@ -4,31 +4,45 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getProductByID, getProducts, registerProduct, updateProduct, deleteProduct } from "../api/productService.js";
 
+const pageSize = 8;
+
+const glassStyle = {
+    backgroundColor: "rgba(255, 255, 255, 0.75)",
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
+    border: "1px solid rgba(255, 255, 255, 0.4)"
+};
+
+const modalOverlayStyle = {
+    backdropFilter: "blur(5px)",
+    backgroundColor: "rgba(0,0,0,0.4)",
+    zIndex: 9999
+};
+
+const modalContentStyle = {
+    width: 400,
+    borderRadius: 15,
+    ...glassStyle,
+    backgroundColor: "rgba(255, 255, 255, 0.9)"
+};
+
 export function Products() {
     const [products, setProducts] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showRegisterModal, setShowRegisterModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
-    const token = localStorage.getItem("token");
     const [page, setPage] = useState(1);
-    const pageSize = 8;
     const [totalItems, setTotalItems] = useState(0);
-
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const [Image, setImage] = useState("");
-
     const [editingId, setEditingId] = useState(null);
 
-    const totalPages = Math.ceil(totalItems / pageSize);
+    const [formData, setFormData] = useState({
+        title: "",
+        price: "",
+        description: ""
+    });
 
-    const glassStyle = {
-        backgroundColor: "rgba(255, 255, 255, 0.75)",
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.4)"
-    };
+    const token = localStorage.getItem("token");
+    const totalPages = Math.ceil(totalItems / pageSize);
 
     const loadProducts = useCallback(async () => {
         try {
@@ -44,7 +58,7 @@ export function Products() {
             console.error(err);
             toast.error("Erro ao conectar com o servidor.");
         }
-    }, [page, pageSize]);
+    }, [page]);
 
     useEffect(() => {
         setIsLoggedIn(!!token);
@@ -58,42 +72,36 @@ export function Products() {
     };
 
     const clearForm = () => {
-        setTitle("");
-        setPrice("");
-        setDescription("");
-        setImage("");
+        setFormData({ title: "", price: "", description: "" });
         setEditingId(null);
     };
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
     const handleAddProduct = async () => {
+        const { title, price, description } = formData;
         if (!title || !price) return;
+
         try {
-            await registerProduct(token, {
-                title,
-                description: description,
-                price: price,
-                image: Image
-            });
+            await registerProduct(token, { title, description, price });
             toast.success("Produto salvo!");
             setShowRegisterModal(false);
             loadProducts();
+            clearForm();
         } catch (err) {
             toast.error(err.message);
         }
-        clearForm();
     };
 
     const handleUpdateProduct = async () => {
+        const { title, price, description } = formData;
         if (!editingId || !title || !price) return;
 
         try {
-            await updateProduct(token, {
-                id: editingId,
-                title: title,
-                description: description,
-                price: price,
-            });
-
+            await updateProduct(token, { id: editingId, title, description, price });
             toast.success("Produto atualizado com sucesso!");
             setShowEditModal(false);
             loadProducts();
@@ -120,7 +128,6 @@ export function Products() {
     };
 
     const handlePlusClick = () => {
-        const token = localStorage.getItem("token");
         if (!token) {
             window.location.href = "/auth";
             return;
@@ -130,7 +137,6 @@ export function Products() {
     };
 
     const handleEdit = async (id) => {
-        const token = localStorage.getItem("token");
         if (!token) {
             window.location.href = "/auth";
             return;
@@ -138,10 +144,11 @@ export function Products() {
 
         try {
             const data = await getProductByID(id);
-            setTitle(data.title || "");
-            setDescription(data.description || "");
-            setPrice(data.price || "");
-            setImage(data.image || "");
+            setFormData({
+                title: data.title || "",
+                description: data.description || "",
+                price: data.price || ""
+            });
             setEditingId(id);
             setShowEditModal(true);
         } catch (error) {
@@ -152,7 +159,7 @@ export function Products() {
 
     return (
         <>
-            <ToastContainer position="top-right" autoClose={3000}/>
+            <ToastContainer position="top-right" autoClose={3000} />
             <header>
                 <nav className="navbar bg-body-tertiary fixed-top">
                     <div className="container-fluid">
@@ -160,7 +167,7 @@ export function Products() {
                         <div className="d-flex align-items-center gap-3">
                             <button
                                 className="btn btn-outline-primary btn-frutiger-aero"
-                                style={{width: 40, height: 40, display: "flex", justifyContent: "center", alignItems: "center"}}
+                                style={{ width: 40, height: 40, display: "flex", justifyContent: "center", alignItems: "center" }}
                                 onClick={handlePlusClick}
                             >
                                 +
@@ -175,18 +182,19 @@ export function Products() {
                             )}
                             <a
                                 href={isLoggedIn ? "/profile" : "/auth"}
-                                style={{width: 40, height: 40, borderRadius: "50%", overflow: "hidden", display: "block"}}
+                                style={{ width: 40, height: 40, borderRadius: "50%", overflow: "hidden", display: "block" }}
                             >
                                 <img
                                     src="/pfp.jpg"
                                     alt="User"
-                                    style={{width: "100%", height: "100%", objectFit: "cover"}}
+                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                 />
                             </a>
                         </div>
                     </div>
                 </nav>
             </header>
+
             <main
                 className="container-fluid pt-5 p-4"
                 style={{
@@ -207,7 +215,7 @@ export function Products() {
                                     src={p.image || "https://placehold.co/600x400"}
                                     className="card-img-top"
                                     alt={p.title}
-                                    style={{maxHeight: "200px", objectFit: "cover", borderBottom: "1px solid rgba(0,0,0,0.1)"}}
+                                    style={{ maxHeight: "200px", objectFit: "cover", borderBottom: "1px solid rgba(0,0,0,0.1)" }}
                                 />
                                 <div className="card-body d-flex flex-column">
                                     <h5 className="card-title fw-bold">{p.title}</h5>
@@ -226,18 +234,19 @@ export function Products() {
                         </div>
                     ))}
                 </div>
+
                 <footer className="container pb-4 d-flex justify-content-center mt-3">
                     <ul className="pagination shadow-sm">
                         {[...Array(totalPages)].map((_, i) => (
                             <li
                                 key={i}
                                 className={`page-item ${page === i + 1 ? "active" : ""}`}
-                                style={{cursor: "pointer"}}
+                                style={{ cursor: "pointer" }}
                             >
                                 <span
                                     className="page-link"
                                     onClick={() => setPage(i + 1)}
-                                    style={page !== i + 1 ? {backgroundColor: "rgba(255,255,255,0.8)"} : {}}
+                                    style={page !== i + 1 ? { backgroundColor: "rgba(255,255,255,0.8)" } : {}}
                                 >
                                     {i + 1}
                                 </span>
@@ -248,19 +257,13 @@ export function Products() {
             </main>
 
             {showRegisterModal && (
-                <div
-                    className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-                    style={{backdropFilter: "blur(5px)", backgroundColor: "rgba(0,0,0,0.4)", zIndex: 9999}}
-                >
-                    <div
-                        className="card shadow-lg p-4"
-                        style={{width: 400, borderRadius: 15, ...glassStyle, backgroundColor: "rgba(255, 255, 255, 0.9)"}}
-                    >
+                <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style={modalOverlayStyle}>
+                    <div className="card shadow-lg p-4" style={modalContentStyle}>
                         <h5 className="mb-4 fw-bold text-center">Novo Produto</h5>
-                        <input type="text" className="form-control mb-3" placeholder="Titulo" value={title} onChange={e => setTitle(e.target.value)} />
-                        <input type="number" className="form-control mb-3" placeholder="Preço" value={price} onChange={e => setPrice(e.target.value)} />
-                        <input type="text" className="form-control mb-3" placeholder="Descrição" value={description} onChange={e => setDescription(e.target.value)} />
-                        <input type="text" className="form-control mb-4" placeholder="Imagem (URL opcional)" value={Image} onChange={e => setImage(e.target.value)} />
+                        <input type="text" name="title" className="form-control mb-3" placeholder="Título" value={formData.title} onChange={handleInputChange} />
+                        <input type="number" name="price" className="form-control mb-3" placeholder="Preço" value={formData.price} onChange={handleInputChange} />
+                        <input type="text" name="description" className="form-control mb-3" placeholder="Descrição" value={formData.description} onChange={handleInputChange} />
+
                         <div className="d-flex justify-content-end gap-2">
                             <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowRegisterModal(false)}>Cancelar</button>
                             <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleAddProduct}>Concluir</button>
@@ -270,26 +273,15 @@ export function Products() {
             )}
 
             {showEditModal && (
-                <div
-                    className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-                    style={{backdropFilter: "blur(5px)", backgroundColor: "rgba(0,0,0,0.4)", zIndex: 9999}}
-                >
-                    <div
-                        className="card shadow-lg p-4"
-                        style={{width: 400, borderRadius: 15, ...glassStyle, backgroundColor: "rgba(255, 255, 255, 0.9)"}}
-                    >
+                <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style={modalOverlayStyle}>
+                    <div className="card shadow-lg p-4" style={modalContentStyle}>
                         <h5 className="mb-4 fw-bold text-center">Editar Produto</h5>
-                        <input type="text" className="form-control mb-3" placeholder="Titulo" value={title} onChange={e => setTitle(e.target.value)} />
-                        <input type="number" className="form-control mb-3" placeholder="Preço" value={price} onChange={e => setPrice(e.target.value)} />
-                        <input type="text" className="form-control mb-3" placeholder="Descrição" value={description} onChange={e => setDescription(e.target.value)} />
-                        <input type="text" className="form-control mb-4" placeholder="Imagem (URL opcional)" value={Image} onChange={e => setImage(e.target.value)} />
+                        <input type="text" name="title" className="form-control mb-3" placeholder="Título" value={formData.title} onChange={handleInputChange} />
+                        <input type="number" name="price" className="form-control mb-3" placeholder="Preço" value={formData.price} onChange={handleInputChange} />
+                        <input type="text" name="description" className="form-control mb-3" placeholder="Descrição" value={formData.description} onChange={handleInputChange} />
+
                         <div className="d-flex justify-content-between align-items-center">
-                            <button
-                                className="btn btn-danger btn-frutiger-aero"
-                                onClick={handleDeleteProduct}
-                            >
-                                Deletar
-                            </button>
+                            <button className="btn btn-danger btn-frutiger-aero" onClick={handleDeleteProduct}>Deletar</button>
                             <div className="d-flex gap-2">
                                 <button className="btn btn-secondary btn-frutiger-aero" onClick={() => setShowEditModal(false)}>Cancelar</button>
                                 <button className="btn btn-success px-4 btn-frutiger-aero" onClick={handleUpdateProduct}>Concluir</button>
