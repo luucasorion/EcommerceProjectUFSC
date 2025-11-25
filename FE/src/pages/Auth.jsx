@@ -30,7 +30,7 @@ export default function AuthPage() {
 
         try {
             const data = await registerUser({
-                title: regName,
+                name: regName,
                 email: regEmail,
                 password: regPassword
             });
