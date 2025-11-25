@@ -1,7 +1,48 @@
-# EcommerceProjectUFSC
+# EcommerceProjectUFSC 
 
-Projeto pratico para a disciplina INE5646-03238B (20252) - Programação para Web
+## 📌 Descrição do Trabalho
+Este projeto consiste no desenvolvimento de uma aplicação Web de comércio eletrônico (*e-commerce*), criada como parte da disciplina **INE5646 – Programação para Web (UFSC)**.  
+A aplicação permite:
 
-Descrição: A principio, sera um ecommerce feito em .Net
+- Cadastro e edição de usuários  
+- Cadastro, listagem, edição e exclusão de produtos  
+- Visualização em catálogo  
+- Funcionamento 24/7 para avaliação
 
-Membros: Lucas Orion, Barbara Mina
+
+
+---
+
+## 👥 Membros do Grupo
+
+| Nome | Matrícula |
+|---|---|
+| Lucas Orion | 24103657 |
+| Barbara Mina | 24202522 |
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+### Backend
+- .NET 8  
+- C#  
+- ASP.NET Core  
+- Arquitetura **DDD (Domain-Driven Design)**
+
+### Frontend
+- React  
+- Vite  
+- JavaScript  
+- Bootstrap
+
+### Hospedagem
+- **Vercel** (Frontend)  
+- **Azure** (Backend e Infraestrutura)
+
+---
+
+## 🏛 Arquitetura do Projeto
+
+O backend segue o padrão **DDD (Domain-Driven Design)**
+
