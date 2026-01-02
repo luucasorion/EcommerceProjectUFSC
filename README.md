@@ -1,6 +1,6 @@
 # EcommerceProjectUFSC 🛒
 
-![.NET][badge-dotnet] ![React][badge-react] ![Vite][badge-vite] ![Bootstrap][badge-bootstrap] ![Azure][badge-azure] ![Vercel][badge-vercel]
+![.NET][badge-dotnet] ![React][badge-react] ![Vite][badge-vite] ![Bootstrap][badge-bootstrap] ![Azure][badge-azure] ![Vercel][badge-vercel] ![Docker][badge-docker]
 
 Aplicação Web de comércio eletrônico desenvolvida como parte da disciplina **INE5646 – Programação para Web** da Universidade Federal de Santa Catarina (UFSC).
 
@@ -60,9 +60,27 @@ A solução está organizada nas seguintes camadas:
 
 ### Pré-Requisitos
 Certifique-se de ter instalado em sua máquina:
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 * [Node.js + NPM](https://nodejs.org/)
 * IDE de preferência (Visual Studio, VS Code ou Rider)
+
+### 📊 Passo a Passo – Database
+
+Para que a aplicação funcione, é necessário subir o banco de dados via Docker seguindo estes passos:
+
+1.  Navegue até a pasta do Docker:
+    ```bash
+    cd ./Docker
+    ```
+2.  **Configure o `.env`:**
+    Copie o arquivo `.env.example` e renomeie para **.env** e edite as configurações desejadas.
+
+4.  Execute o Docker Compose:
+    ```bash
+    docker compose up -d
+    ```
+    > O Docker irá baixar a imagem e iniciar o SQL Server automaticamente.
 
 ### 📌 Passo a Passo – Backend
 
@@ -113,7 +131,7 @@ O projeto está online e disponível para avaliação:
 * ☁️ **Backend:** Hospedado na **Microsoft Azure** (App Service).
 
 ---
-
+[badge-docker]: https://img.shields.io/badge/Docker-512BD4?logo=Docker&logoColor=fff&style=for-the-badge
 [badge-dotnet]: https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=fff&style=for-the-badge
 [badge-react]: https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge
 [badge-vite]: https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=for-the-badge

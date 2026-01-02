@@ -36,7 +36,7 @@ public class ProductRepository : IProductWriteOnlyRepository, IProductReadOnlyRe
     {
         return await _dbContext
             .Product
-            .SingleOrDefaultAsync(product => product.Id == id && product.Active);
+            .SingleOrDefaultAsync(product => product.Id == id && product.Active)!;
     }
 
     public void Update(Product product)

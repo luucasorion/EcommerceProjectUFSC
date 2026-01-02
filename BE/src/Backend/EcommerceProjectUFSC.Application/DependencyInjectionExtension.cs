@@ -25,7 +25,7 @@ public static class DependencyInjectionExtension
     {
         var autoMapper = new MapperConfiguration(options => { options.AddProfile(new AutoMapping()); }).CreateMapper();
 
-        services.AddScoped(options => autoMapper);
+        services.AddScoped(_ => autoMapper);
     }
 
     private static void AddUseCase(IServiceCollection services)
@@ -41,8 +41,8 @@ public static class DependencyInjectionExtension
         services.AddScoped<IDeleteProductUseCase, DeleteProductUseCase>();
     }
 
-    private static void AddDPassword(IServiceCollection services, IConfiguration configuration)
+    private static void AddDPassword(IServiceCollection services, IConfiguration _)
     {
-        services.AddScoped(option => new PasswordEncrypter());
+        services.AddScoped(_ => new PasswordEncrypter());
     }
 }
