@@ -3,7 +3,6 @@ WORKDIR /app
 
 COPY BE ./BE
 
-
 WORKDIR /app/BE/src/Backend/EcommerceProjectUFSC.API
 RUN dotnet restore
 

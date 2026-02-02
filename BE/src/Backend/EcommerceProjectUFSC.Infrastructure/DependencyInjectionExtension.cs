@@ -37,7 +37,7 @@ public static class DependencyInjectionExtension
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.ConnectionString();
-
+ 
         services.AddDbContext<EcommerceProjectUFSCDbContext>(dbContextOptions =>
         {
             dbContextOptions.UseSqlServer(connectionString);

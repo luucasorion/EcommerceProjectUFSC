@@ -1,0 +1,39 @@
+services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver-local
+    env_file:
+      - ".env"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "${DB_PASSWORD}"
+    ports:
+      - "1433:${DB_PORT}"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    restart: unless-stopped
+    networks:
+      - dev-network  
+
+  api:
+    build:
+      context: ..
+      dockerfile: BE/Dockerfile
+    container_name: api-dev
+    env_file:
+      - ".env"
+    ports:
+      - "3000:3000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    command: ["dotnet", "watch", "run", "--urls", "http://0.0.0.0:3000"]
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
+
+volumes:
+  sqlserver_data:

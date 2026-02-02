@@ -57,6 +57,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+
 builder.Services.AddHealthChecks().AddDbContextCheck<EcommerceProjectUFSCDbContext>();
 
 builder.Services.AddCors(options =>
@@ -64,9 +65,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy => policy
             .WithOrigins(
-                "http://localhost:5173",
-                "http://192.168.2.125:5173",
-                "https://ecommerceprojectufsc-cfh3hqf0brgthrd9.eastus2-01.azurewebsites.net"
+                "*"
             )
             .AllowAnyMethod()
             .AllowAnyHeader());
@@ -74,15 +73,12 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseRouting();
+
 app.UseCors("AllowFrontend");
+
 app.UseMiddleware<CultureMiddleware>();
-
-// Adição do Middleware Global:
 app.UseGlobalExceptionHandler();
-
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 
 if (app.Environment.IsDevelopment())
 {
@@ -91,6 +87,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthorization();
+app.MapControllers();
 
 app.MapHealthChecks("/Health", new HealthCheckOptions
 {
