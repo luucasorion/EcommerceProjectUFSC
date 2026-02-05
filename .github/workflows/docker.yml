@@ -20,7 +20,7 @@ jobs:
           
       - name: Build Docker image
         run: |
-          docker build -f Docker/Dockerfile \
+          docker build -f BE/Dockerfile \
             -t luucasorion/minha-api:latest .
 
       - name: Push Docker image
