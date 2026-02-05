@@ -73,4 +73,6 @@ public class ProductsController : EcommerceProjectUfscBaseController
         
         return NoContent();
     }    
+    
+    
 }

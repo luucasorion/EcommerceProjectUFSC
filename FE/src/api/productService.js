@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5056";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function registerProduct(token, productData) {
     const response = await fetch(API_URL + '/products', {
